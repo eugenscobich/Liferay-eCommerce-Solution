@@ -11,25 +11,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
 import com.liferay.ecommerce.controller.portlet.BaseController;
-import com.liferay.ecommerce.service.Test;
+import com.liferay.ecommerce.service.store.StoreService;
 
 @Controller
-@RequestMapping(value = "view")
+@RequestMapping(value = "VIEW")
 public class MainController extends BaseController {
 
 	private static Logger LOG = Logger.getLogger(MainController.class);
 	
 	@Autowired
 	private MessageSource messageSource;
-
+	
 	@Autowired
-	private Test test;
+	private StoreService storeService;
 	
 	@RenderMapping
-	public String view(RenderRequest render, RenderResponse response) {
-		String aaa= messageSource.getMessage("eugen", null, null, null);
-		LOG.info("Call render view " + aaa + test);
+	public String view(RenderRequest request, RenderResponse response) {
+		String reslut = messageSource.getMessage("eugen", null, null, null) + storeService.get(1l).getName();
+		LOG.info("Call render view " + reslut);
+		request.setAttribute("message", reslut);
 		return "view";
 	}
+
+
 
 }

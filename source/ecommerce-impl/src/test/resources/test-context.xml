@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/tx
+           				http://www.springframework.org/schema/tx/spring-tx.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd
+						http://www.springframework.org/schema/jdbc
+						http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+	<context:component-scan base-package="com.liferay.ecommerce.dao" />
+	<context:component-scan base-package="com.liferay.ecommerce.service" />
+
+	<tx:annotation-driven />	
+	
+	<!-- Must be done in two steps, since database schema is created automatically -->
+	<jdbc:embedded-database id="dataSource" type="HSQL" />
+
+	<jdbc:initialize-database data-source="dataSource">
+		<jdbc:script location="classpath:import.sql" />
+	</jdbc:initialize-database>
+	
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="jpaAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="database" value="HSQL" />
+		<property name="showSql" value="true" />
+	</bean>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="jpaAdapter" />
+		<property name="persistenceUnitName" value="ecommercePersistenceUnit" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="servicePropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:/settings.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- Register the messages.properties -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
+</beans>

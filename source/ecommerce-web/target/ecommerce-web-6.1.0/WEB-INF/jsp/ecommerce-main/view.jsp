@@ -3,6 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 
-Salut
+Salut: ${message}
 
 

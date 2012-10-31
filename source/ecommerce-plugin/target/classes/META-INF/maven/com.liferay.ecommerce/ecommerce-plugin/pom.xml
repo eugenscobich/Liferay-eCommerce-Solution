@@ -9,5 +9,11 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../ecommerce/pom.xml</relativePath>
 	</parent>
-
+	<dependencies>
+		<dependency>
+			<groupId>com.liferay.ecommerce</groupId>
+			<artifactId>ecommerce-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 </project>
