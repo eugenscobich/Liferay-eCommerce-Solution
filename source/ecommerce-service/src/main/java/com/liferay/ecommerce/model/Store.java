@@ -1,10 +1,7 @@
 package com.liferay.ecommerce.model;
 
-import java.io.Serializable;
 
-public interface Store extends Serializable {
-
-	long getId();
+public interface Store extends BaseModel {
 
 	String getName();
 

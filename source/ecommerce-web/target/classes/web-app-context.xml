@@ -17,6 +17,7 @@
 	</bean>
 
 	<import resource="classpath:/service-context.xml" />
+	<import resource="classpath*:/liferay-ecommerce-plugin-context.xml" />
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">

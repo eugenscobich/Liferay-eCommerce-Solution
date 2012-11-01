@@ -1,0 +1,19 @@
+.ecommerce-admin{
+	overflow: hidden;
+}
+
+.ecommerce-admin-menu {
+	width: 200px;
+	padding-right: 5px;
+	float: left;
+	overflow: hidden;
+}
+
+.ecommerce-admin-content {
+	padding-left: 210px;
+	width: 100%;
+}
+
+.ui-accordion .ui-accordion-content {
+	padding: 10px !important;
+}

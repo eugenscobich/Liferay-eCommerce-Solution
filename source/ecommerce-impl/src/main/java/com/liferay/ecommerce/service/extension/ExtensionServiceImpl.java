@@ -1,7 +1,9 @@
 package com.liferay.ecommerce.service.extension;
 
 import java.io.File;
-import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +22,20 @@ public class ExtensionServiceImpl implements ExtensionService {
 	@Autowired
 	private ApplicationContext applicationContext;
 
+
 	@Override
 	public void checkExtension() {
-		LOG.info("Run check extension");
-		String files;
-		File folder = null;
-		try {
-			folder = applicationContext.getResource(exstationRelativeLoactionPath).getFile();
-		} catch (IOException e) {
-			LOG.error(e, e);
-		}
-		File[] listOfFiles = folder.listFiles();
+		LOG.error("aaa");
+	}
 
+	@SuppressWarnings("deprecation")
+	public static void addPath(File file) throws Exception {
+		URL u = file.toURL();
+		URLClassLoader urlClassLoader = (URLClassLoader) ClassLoader.getSystemClassLoader();
+		Class<URLClassLoader> urlClass = URLClassLoader.class;
+		Method method = urlClass.getDeclaredMethod("addURL", new Class[] { URL.class });
+		method.setAccessible(true);
+		method.invoke(urlClassLoader, new Object[] { u });
 	}
 
 }

@@ -5,8 +5,8 @@
 	version="2.0">
 
 	<portlet>
-		<portlet-name>ecommerceMain</portlet-name>
-		<display-name>eCommerce Main Portlet</display-name>
+		<portlet-name>eCommerceMain</portlet-name>
+		<display-name>eCommerce Main</display-name>
 		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
 		<init-param>
 			<name>contextConfigLocation</name>
@@ -18,4 +18,21 @@
 		</supports>
 		<resource-bundle>/messages/ecommerce-main</resource-bundle>
 	</portlet>
+	
+	<!-- ======================================================= Administration ======================================================= -->
+	<portlet>
+		<portlet-name>eCommerceAdministration</portlet-name>
+		<display-name>eCommerce Administration</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<init-param>
+			<name>contextConfigLocation</name>
+			<value>/WEB-INF/context/ecommerce-administration-context.xml</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>/messages/ecommerce-administration</resource-bundle>
+	</portlet>
+	
 </portlet-app>

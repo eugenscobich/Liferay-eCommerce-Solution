@@ -52,6 +52,16 @@
 			<artifactId>portlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.liferay.ecommerce</groupId>
+			<artifactId>ecommerce-extension-liferay</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eugen.test</groupId>
+			<artifactId>ecommerce-extension-test</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}-6.1.0</finalName>

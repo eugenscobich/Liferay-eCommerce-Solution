@@ -3,6 +3,9 @@
 
 <display>
 	<category name="eCommerce">
-		<portlet id="ecommerceMain" />
+		<portlet id="eCommerceMain" />
+	</category>
+	<category name="eCommerce Administration">
+		<portlet id="eCommerceAdministration" />
 	</category>
 </display>

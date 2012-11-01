@@ -1,0 +1,399 @@
+
+D:\Workspace\Liferay-eCommerce-Solution\source>cd ecommerce-service 
+
+D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service>call mvn clean install 
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.liferay.ecommerce:ecommerce-service:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.liferay.ecommerce:ecommerce:0.0.1-SNAPSHOT, D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce\pom.xml, line 192, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecommerce-service 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ ecommerce-service ---
+[INFO] Deleting D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ ecommerce-service ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ ecommerce-service ---
+[INFO] Compiling 17 source files to D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ ecommerce-service ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ ecommerce-service ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ ecommerce-service ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ ecommerce-service ---
+[INFO] Building jar: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\ecommerce-service-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ecommerce-service ---
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\ecommerce-service-0.0.1-SNAPSHOT.jar to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-service\0.0.1-SNAPSHOT\ecommerce-service-0.0.1-SNAPSHOT.jar
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\pom.xml to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-service\0.0.1-SNAPSHOT\ecommerce-service-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.073s
+[INFO] Finished at: Thu Nov 01 13:10:55 FET 2012
+[INFO] Final Memory: 11M/152M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.liferay.ecommerce:ecommerce-extension-liferay:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.liferay.ecommerce:ecommerce:0.0.1-SNAPSHOT, C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce\0.0.1-SNAPSHOT\ecommerce-0.0.1-SNAPSHOT.pom, line 192, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecommerce-extension-liferay 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ ecommerce-extension-liferay ---
+[INFO] Deleting D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-liferay\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ ecommerce-extension-liferay ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ ecommerce-extension-liferay ---
+[INFO] Compiling 1 source file to D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-liferay\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ ecommerce-extension-liferay ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-liferay\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ ecommerce-extension-liferay ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ ecommerce-extension-liferay ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-liferay\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ ecommerce-extension-liferay ---
+[INFO] Building jar: D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-liferay\target\ecommerce-extension-liferay-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ecommerce-extension-liferay ---
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-liferay\target\ecommerce-extension-liferay-0.0.1-SNAPSHOT.jar to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-extension-liferay\0.0.1-SNAPSHOT\ecommerce-extension-liferay-0.0.1-SNAPSHOT.jar
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-liferay\pom.xml to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-extension-liferay\0.0.1-SNAPSHOT\ecommerce-extension-liferay-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.989s
+[INFO] Finished at: Thu Nov 01 13:10:59 FET 2012
+[INFO] Final Memory: 10M/124M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.eugen.test:ecommerce-extension-test:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 18, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecommerce-extension-test 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ ecommerce-extension-test ---
+[INFO] Deleting D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-test\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ ecommerce-extension-test ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ ecommerce-extension-test ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-test\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ ecommerce-extension-test ---
+[debug] execute contextualize
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-test\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ ecommerce-extension-test ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ ecommerce-extension-test ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-test\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ ecommerce-extension-test ---
+[INFO] Building jar: D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-test\target\ecommerce-extension-test-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ecommerce-extension-test ---
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-test\target\ecommerce-extension-test-0.0.1-SNAPSHOT.jar to C:\Users\escobici\.m2\repository\com\eugen\test\ecommerce-extension-test\0.0.1-SNAPSHOT\ecommerce-extension-test-0.0.1-SNAPSHOT.jar
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\extension\ecommerce-extension-test\pom.xml to C:\Users\escobici\.m2\repository\com\eugen\test\ecommerce-extension-test\0.0.1-SNAPSHOT\ecommerce-extension-test-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.791s
+[INFO] Finished at: Thu Nov 01 13:11:03 FET 2012
+[INFO] Final Memory: 11M/152M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.liferay.ecommerce:ecommerce-service:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.liferay.ecommerce:ecommerce:0.0.1-SNAPSHOT, D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce\pom.xml, line 192, column 12
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.liferay.ecommerce:ecommerce-impl:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.liferay.ecommerce:ecommerce:0.0.1-SNAPSHOT, D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce\pom.xml, line 192, column 12
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.liferay.ecommerce:ecommerce-web:war:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.liferay.ecommerce:ecommerce:0.0.1-SNAPSHOT, D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce\pom.xml, line 192, column 12
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.liferay.ecommerce:ecommerce:pom:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 192, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ecommerce
+[INFO] ecommerce-service
+[INFO] ecommerce-impl
+[INFO] ecommerce-web
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecommerce 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ ecommerce ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ecommerce ---
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce\pom.xml to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce\0.0.1-SNAPSHOT\ecommerce-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecommerce-service 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ ecommerce-service ---
+[INFO] Deleting D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ ecommerce-service ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ ecommerce-service ---
+[INFO] Compiling 17 source files to D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ ecommerce-service ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ ecommerce-service ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ ecommerce-service ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ ecommerce-service ---
+[INFO] Building jar: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\ecommerce-service-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ecommerce-service ---
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\target\ecommerce-service-0.0.1-SNAPSHOT.jar to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-service\0.0.1-SNAPSHOT\ecommerce-service-0.0.1-SNAPSHOT.jar
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-service\pom.xml to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-service\0.0.1-SNAPSHOT\ecommerce-service-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecommerce-impl 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ ecommerce-impl ---
+[INFO] Deleting D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-impl\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ ecommerce-impl ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ ecommerce-impl ---
+[INFO] Compiling 16 source files to D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-impl\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ ecommerce-impl ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ ecommerce-impl ---
+[INFO] Compiling 1 source file to D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-impl\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ ecommerce-impl ---
+[INFO] Surefire report directory: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-impl\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.liferay.ecommerce.service.store.StoreServiceTest
+01.11.2012 13:11:09 INFO  (TestContextManager.java:retrieveTestExecutionListeners:185) @TestExecutionListeners is not present for class [class com.liferay.ecommerce.service.store.StoreServiceTest]: using defaults.
+01.11.2012 13:11:09 INFO  (XmlBeanDefinitionReader.java:loadBeanDefinitions:315) Loading XML bean definitions from class path resource [test-context.xml]
+01.11.2012 13:11:09 INFO  (AbstractApplicationContext.java:prepareRefresh:500) Refreshing org.springframework.context.support.GenericApplicationContext@5caf993e: startup date [Thu Nov 01 13:11:09 FET 2012]; root of context hierarchy
+01.11.2012 13:11:09 INFO  (PropertiesLoaderSupport.java:loadProperties:177) Loading properties file from class path resource [settings.properties]
+01.11.2012 13:11:09 INFO  (DefaultListableBeanFactory.java:preInstantiateSingletons:581) Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6ad16fc1: defining beans [storeDataAccessImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,extensionServiceImpl,jobServiceImpl,storeServiceImpl,systemServiceImpl,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,dataSource,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor#0,jpaAdapter,entityManagerFactory,transactionManager,servicePropertyPlaceholderConfigurer,messageSource,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+01.11.2012 13:11:09 INFO  (EmbeddedDatabaseFactory.java:initDatabase:124) Creating embedded database 'dataSource'
+01.11.2012 13:11:10 INFO  (LocalContainerEntityManagerFactoryBean.java:createNativeEntityManagerFactory:264) Building JPA container EntityManagerFactory for persistence unit 'ecommercePersistenceUnit'
+01.11.2012 13:11:10 INFO  (Version.java:<clinit>:37) HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+01.11.2012 13:11:10 INFO  (Version.java:logVersion:41) HHH000412: Hibernate Core {4.1.7.Final}
+01.11.2012 13:11:10 INFO  (Environment.java:<clinit>:239) HHH000206: hibernate.properties not found
+01.11.2012 13:11:10 INFO  (Environment.java:buildBytecodeProvider:342) HHH000021: Bytecode provider name : javassist
+01.11.2012 13:11:10 INFO  (Ejb3Configuration.java:configure:527) HHH000204: Processing PersistenceUnitInfo [
+	name: ecommercePersistenceUnit
+	...]
+01.11.2012 13:11:10 INFO  (ConnectionProviderInitiator.java:instantiateExplicitConnectionProvider:188) HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+01.11.2012 13:11:10 INFO  (Dialect.java:<init>:125) HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+01.11.2012 13:11:10 INFO  (TransactionFactoryInitiator.java:initiateService:73) HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory
+01.11.2012 13:11:10 INFO  (ASTQueryTranslatorFactory.java:<init>:48) HHH000397: Using ASTQueryTranslatorFactory
+01.11.2012 13:11:10 INFO  (SchemaUpdate.java:execute:182) HHH000228: Running hbm2ddl schema update
+01.11.2012 13:11:10 INFO  (SchemaUpdate.java:execute:193) HHH000102: Fetching database metadata
+01.11.2012 13:11:10 INFO  (SchemaUpdate.java:execute:205) HHH000396: Updating schema
+01.11.2012 13:11:10 INFO  (DatabaseMetadata.java:getTableMetadata:120) HHH000262: Table not found: additional_information
+01.11.2012 13:11:10 INFO  (DatabaseMetadata.java:getTableMetadata:120) HHH000262: Table not found: store
+01.11.2012 13:11:11 INFO  (DatabaseMetadata.java:getTableMetadata:120) HHH000262: Table not found: additional_information
+01.11.2012 13:11:11 INFO  (DatabaseMetadata.java:getTableMetadata:120) HHH000262: Table not found: store
+01.11.2012 13:11:11 INFO  (SchemaUpdate.java:execute:240) HHH000232: Schema update complete
+01.11.2012 13:11:11 INFO  (ResourceDatabasePopulator.java:executeSqlScript:159) Executing SQL script from class path resource [import.sql]
+01.11.2012 13:11:11 INFO  (ResourceDatabasePopulator.java:executeSqlScript:214) Done executing SQL script from class path resource [import.sql] in 1 ms.
+Hibernate: insert into store (id, name) values (default, ?)
+Hibernate: select storeimpl0_.id as id0_0_, storeimpl0_.name as name0_0_ from store storeimpl0_ where storeimpl0_.id=?
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.274 sec
+01.11.2012 13:11:11 INFO  (AbstractApplicationContext.java:doClose:1025) Closing org.springframework.context.support.GenericApplicationContext@5caf993e: startup date [Thu Nov 01 13:11:09 FET 2012]; root of context hierarchy
+01.11.2012 13:11:11 INFO  (DefaultSingletonBeanRegistry.java:destroySingletons:433) Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6ad16fc1: defining beans [storeDataAccessImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,extensionServiceImpl,jobServiceImpl,storeServiceImpl,systemServiceImpl,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,dataSource,org.springframework.jdbc.datasource.init.DataSourceInitializer#0,org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor#0,jpaAdapter,entityManagerFactory,transactionManager,servicePropertyPlaceholderConfigurer,messageSource,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+01.11.2012 13:11:11 INFO  (AbstractEntityManagerFactoryBean.java:destroy:441) Closing JPA EntityManagerFactory for persistence unit 'ecommercePersistenceUnit'
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ ecommerce-impl ---
+[INFO] Building jar: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-impl\target\ecommerce-impl-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ecommerce-impl ---
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-impl\target\ecommerce-impl-0.0.1-SNAPSHOT.jar to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-impl\0.0.1-SNAPSHOT\ecommerce-impl-0.0.1-SNAPSHOT.jar
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-impl\pom.xml to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-impl\0.0.1-SNAPSHOT\ecommerce-impl-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ecommerce-web 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ ecommerce-web ---
+[INFO] Deleting D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ ecommerce-web ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ ecommerce-web ---
+[INFO] Compiling 2 source files to D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ ecommerce-web ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ ecommerce-web ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ ecommerce-web ---
+[INFO] Surefire report directory: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ ecommerce-web ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [ecommerce-web] in [D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\target\ecommerce-web-6.1.0]
+[INFO] Processing war project
+[INFO] Copying webapp resources [D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\src\main\webapp]
+[INFO] Webapp assembled in [224 msecs]
+[INFO] Building war: D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\target\ecommerce-web-6.1.0.war
+[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
+(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ecommerce-web ---
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\target\ecommerce-web-6.1.0.war to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-web\0.0.1-SNAPSHOT\ecommerce-web-0.0.1-SNAPSHOT.war
+[INFO] Installing D:\Workspace\Liferay-eCommerce-Solution\source\ecommerce-web\pom.xml to C:\Users\escobici\.m2\repository\com\liferay\ecommerce\ecommerce-web\0.0.1-SNAPSHOT\ecommerce-web-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] ecommerce ......................................... SUCCESS [0.533s]
+[INFO] ecommerce-service ................................. SUCCESS [2.316s]
+[INFO] ecommerce-impl .................................... SUCCESS [4.019s]
+[INFO] ecommerce-web ..................................... SUCCESS [2.535s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 9.550s
+[INFO] Finished at: Thu Nov 01 13:11:13 FET 2012
+[INFO] Final Memory: 28M/221M
+[INFO] ------------------------------------------------------------------------
