@@ -3,14 +3,15 @@
 }
 
 .ecommerce-admin-menu {
-	width: 200px;
-	padding-right: 5px;
+	width: 250px;
+	margin-right: 5px;
 	float: left;
 	overflow: hidden;
+	border-top: 1px solid #8E846B;
 }
 
 .ecommerce-admin-content {
-	padding-left: 210px;
+	padding-left: 260px;
 	width: 100%;
 }
 

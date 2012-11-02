@@ -4,6 +4,7 @@
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 
 <div class="ecommerce-admin">
+	<c:set var="selectedAccordion" value="0" scope="request"/>
 	<c:set var="menuIndex" value="0" scope="request"/>
 	<jsp:include page="menu.jsp"/> 
 	<div class="ecommerce-admin-content">

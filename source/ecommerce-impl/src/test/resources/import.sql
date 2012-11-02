@@ -1,3 +1,3 @@
-INSERT INTO store (id, name) VALUES (1, 'eugen');
+INSERT INTO ecommerce_store (id, name) VALUES (1, 'eugen');
 
 

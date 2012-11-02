@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 	<display-name>ecommerce-web</display-name>
-	
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/classes/web-app-context.xml</param-value>
@@ -19,10 +19,10 @@
 		<servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>view-servlet</servlet-name>
 		<url-pattern>/WEB-INF/servlet/view</url-pattern>
 	</servlet-mapping>
-	
+
 </web-app>

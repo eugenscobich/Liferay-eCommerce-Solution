@@ -3,7 +3,6 @@ package com.liferay.ecommerce.controller.portlet.administration;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,7 @@ import com.liferay.ecommerce.service.store.StoreService;
 @RequestMapping(value = "VIEW")
 public class ProductsController extends BaseController {
 
-	private static Logger LOG = Logger.getLogger(ProductsController.class);
+	// private static Logger LOG = Logger.getLogger(ProductsController.class);
 	
 	@Autowired
 	private MessageSource messageSource;
@@ -27,10 +26,8 @@ public class ProductsController extends BaseController {
 	
 	@RenderMapping(params="view=products-view")
 	public String view(RenderRequest request, RenderResponse response) {
-		String reslut = messageSource.getMessage("eugen", null, null, null) + storeService.get(1l).getName();
-		LOG.info("Call render view " + reslut);
-		request.setAttribute("message", reslut);
-		return "products-view";
+		request.setAttribute("message", "Product");
+		return "products/products-view";
 	}
 
 

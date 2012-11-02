@@ -9,6 +9,7 @@
 
 	<bean id="applicationPropertyPlaceholderConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true"/>
 		<property name="locations">
 			<list>
 				<value>classpath:/ecommerce-settings.properties</value>
