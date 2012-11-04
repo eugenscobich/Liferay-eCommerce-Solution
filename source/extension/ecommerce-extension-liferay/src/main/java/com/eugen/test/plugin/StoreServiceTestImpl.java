@@ -1,5 +1,7 @@
 package com.eugen.test.plugin;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -15,10 +17,10 @@ import com.liferay.ecommerce.service.store.StoreService;
 public class StoreServiceTestImpl implements StoreService {
 
 	private static Logger LOG = Logger.getLogger(StoreServiceTestImpl.class);
-	
+
 	@Autowired
 	private StoreDataAccess storeDataAccess;
-	
+
 	@Override
 	@Transactional
 	public Store save(Store store) {
@@ -28,10 +30,16 @@ public class StoreServiceTestImpl implements StoreService {
 	}
 
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	public Store get(Long id) {
 		LOG.info("Test Service");
 		return storeDataAccess.find(id);
+	}
+
+	@Override
+	public List<Store> getAll() {
+		LOG.info("Test Service");
+		return storeDataAccess.getAll();
 	}
 
 }

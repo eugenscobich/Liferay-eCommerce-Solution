@@ -5,9 +5,14 @@
 
 <tiles-definitions>
 	
-
 	<definition name="store-view" extends="admin-layout">
-		<put-attribute name="admin-content" value="/WEB-INF/jsp/ecommerce-administration/store/store-view.jsp" type="template"/>
+		<put-attribute name="admin-content" value="/WEB-INF/jsp/ecommerce-administration/store/store-view.jsp"/>
+		<put-attribute name="menuIndex" value="1.1" type="string"/>
+	</definition>
+	
+	<definition name="store-managment-view" extends="admin-layout">
+		<put-attribute name="admin-content" value="/WEB-INF/jsp/ecommerce-administration/store/store-managment-view.jsp"/>
+		<put-attribute name="menuIndex" value="1.2" type="string"/>
 	</definition>
 	
 </tiles-definitions>

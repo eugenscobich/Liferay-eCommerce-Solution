@@ -4,3 +4,12 @@
 *.jar
 *.war
 *.ear
+source/**/.classpath
+source/**/.project
+source/**/.settings
+source/**/target
+source/**/.classpath
+source/extension/**/.classpath
+source/extension/**/.project
+source/extension/**/.settings
+source/extension/**/target

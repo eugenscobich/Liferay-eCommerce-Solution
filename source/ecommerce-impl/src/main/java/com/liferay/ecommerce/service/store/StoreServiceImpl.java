@@ -1,5 +1,7 @@
 package com.liferay.ecommerce.service.store;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +14,7 @@ public class StoreServiceImpl implements StoreService {
 
 	@Autowired
 	private StoreDataAccess storeDataAccess;
-	
+
 	@Override
 	@Transactional
 	public Store save(Store store) {
@@ -21,9 +23,14 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	public Store get(Long id) {
 		return storeDataAccess.find(id);
+	}
+
+	@Override
+	public List<Store> getAll() {
+		return storeDataAccess.getAll();
 	}
 
 }

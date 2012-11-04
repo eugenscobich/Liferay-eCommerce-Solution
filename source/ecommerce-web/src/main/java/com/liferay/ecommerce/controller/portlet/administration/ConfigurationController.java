@@ -18,20 +18,17 @@ public class ConfigurationController extends BaseController {
 
 	// private static Logger LOG =
 	// Logger.getLogger(ConfigurationController.class);
-	
+
 	@Autowired
 	private MessageSource messageSource;
-	
+
 	@Autowired
 	private StoreService storeService;
-	
 
-	@RenderMapping(params="view=configuration-view")
+	@RenderMapping(params = "view=configuration-view")
 	public String view(RenderRequest request, RenderResponse response) {
 		request.setAttribute("message", "Configuration");
-		return "configuration/configuration-view";
+		return "configuration-view";
 	}
-
-
 
 }

@@ -17,19 +17,20 @@ import com.liferay.ecommerce.service.store.StoreService;
 public class StoreController extends BaseController {
 
 	// private static Logger LOG = Logger.getLogger(StoreController.class);
-	
+
 	@Autowired
 	private MessageSource messageSource;
-	
+
 	@Autowired
 	private StoreService storeService;
-	
-	@RenderMapping(params="view=store-view")
+
+	@RenderMapping(params = "view=store-view")
 	public String view(RenderRequest request, RenderResponse response) {
-		request.setAttribute("message", "Store");
-		return "store/store-view";
+		return "store-view";
 	}
 
-
-
+	@RenderMapping(params = "view=store-managment-view")
+	public String storeManagmentView(RenderRequest request, RenderResponse response) {
+		return "store-managment-view";
+	}
 }
