@@ -28,7 +28,7 @@ public class AdministrationController extends BaseController {
 	@RenderMapping
 	public String view(RenderRequest request, RenderResponse response) {
 		request.setAttribute("message", "Admin");
-		return "view";
+		return "admin-view";
 	}
 
 }

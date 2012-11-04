@@ -2,7 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
-Salut Store
+
+<c:set var="selectedAccordion" value="0" scope="request"/>
+<c:set var="menuIndex" value="0" scope="request"/>
+	
+Salut Admin Content
 
 

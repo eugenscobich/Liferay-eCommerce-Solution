@@ -2,13 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <div class="ecommerce-admin">
-	<c:set var="selectedAccordion" value="0" scope="request"/>
-	<c:set var="menuIndex" value="0" scope="request"/>
-	<jsp:include page="menu.jsp"/> 
+	
+	<div>Select Store</div>
 	<div class="ecommerce-admin-content">
-	Salut
+		<tiles:insertAttribute name="admin-content"/>
+	</div>
+	<div class="ecommerce-admin-menu">
+		<tiles:insertDefinition name="admin-menu"/>
 	</div>
 </div>
 
