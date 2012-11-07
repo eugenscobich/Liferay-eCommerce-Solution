@@ -3,7 +3,7 @@ package com.liferay.ecommerce.model;
 import java.util.List;
 import java.util.Set;
 
-public interface Product {
+public interface Product extends BaseModel {
 
 	Set<ProductDescription> getProductDescriptions();
 

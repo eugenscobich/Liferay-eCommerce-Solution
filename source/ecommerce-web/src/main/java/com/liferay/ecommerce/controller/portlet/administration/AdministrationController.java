@@ -43,6 +43,7 @@ public class AdministrationController extends BaseController {
 	@RenderMapping
 	public String view(RenderRequest request, RenderResponse response) {
 		request.setAttribute("message", "Admin");
+		request.getPortletSession().setAttribute(Constant.ADMIN_CURRENT_STORE_SESSION_ATTR, storeService.getAll().get(0), PortletSession.APPLICATION_SCOPE);
 		return "admin-view";
 	}
 

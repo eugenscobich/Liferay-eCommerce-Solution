@@ -8,12 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "Product")
 @Table(name = "product")
+@NamedQueries({ @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId"),
+		@NamedQuery(name = "Product.getNumberOfProducts", query = "SELECT COUNT(*) FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId") })
 public class ProductImpl extends BaseModelImpl implements Product {
 
 	private static final long serialVersionUID = 1L;

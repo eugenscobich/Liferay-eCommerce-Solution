@@ -15,4 +15,9 @@
 	</definition>
 	
 	<definition name="admin-menu" template="/WEB-INF/jsp/ecommerce-administration/admin-menu.jsp" />
+	
+	<definition name="json-response" template="/WEB-INF/jsp/ecommerce-administration/json-response.jsp" />
+	
+	
+	
 </tiles-definitions>
