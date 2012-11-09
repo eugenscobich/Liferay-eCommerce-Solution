@@ -22,4 +22,11 @@ public class ProductDataAccessImpl extends BaseDataAccessImpl<ProductImpl, Produ
 		return query.getResultList();
 	}
 
+	@Override
+	public Long getNumberOfProducts(Long storeId) {
+		TypedQuery<Long> query = entityManager.createNamedQuery("Product.totalNumber", Long.class);
+		query.setParameter("storeId", storeId);
+		return query.getSingleResult();
+	}
+
 }

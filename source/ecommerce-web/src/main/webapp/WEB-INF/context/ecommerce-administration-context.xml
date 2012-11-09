@@ -10,7 +10,13 @@
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
-	<mvc:annotation-driven />
+	<mvc:annotation-driven/>
+	
+	<bean id="annotationMethodHandlerAdapter" class="org.springframework.web.portlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="customModelAndViewResolver">
+			<bean class="com.liferay.ecommerce.util.json.JsonModelAndViewResolver"/>
+		</property>
+	</bean>
 	
 	<context:component-scan base-package="com.liferay.ecommerce.controller.portlet.administration" />
 

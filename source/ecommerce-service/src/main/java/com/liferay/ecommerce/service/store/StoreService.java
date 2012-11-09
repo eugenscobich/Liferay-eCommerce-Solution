@@ -12,4 +12,6 @@ public interface StoreService {
 
 	List<Store> getAll();
 
+	Store getDefaultStore();
+
 }

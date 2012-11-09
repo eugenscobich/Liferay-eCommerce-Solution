@@ -42,4 +42,11 @@ public abstract class BaseDataAccessImpl<T extends Serializable, K extends Seria
 		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
 		return (Class<K>) genericSuperclass.getActualTypeArguments()[0];
 	}
+
+	protected K getSingleResult(List<K> entities) {
+		if (entities != null && !entities.isEmpty()) {
+			return entities.get(0);
+		}
+		return null;
+	}
 }

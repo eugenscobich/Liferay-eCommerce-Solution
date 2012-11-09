@@ -13,3 +13,7 @@ source/extension/**/.classpath
 source/extension/**/.project
 source/extension/**/.settings
 source/extension/**/target
+source/extension/ecommerce-extension-test/src/main/java/META-INF/MANIFEST.MF
+source/extension/ecommerce-extension-liferay/src/main/java/META-INF/MANIFEST.MF
+source/ecommerce-impl/src/main/java/META-INF/MANIFEST.MF
+source/ecommerce-service/src/main/java/META-INF/MANIFEST.MF

@@ -9,12 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
-import com.liferay.ecommerce.controller.portlet.BaseController;
 import com.liferay.ecommerce.service.store.StoreService;
 
 @Controller
 @RequestMapping(value = "VIEW")
-public class ConfigurationController extends BaseController {
+public class ConfigurationController extends BaseAdminController {
 
 	// private static Logger LOG =
 	// Logger.getLogger(ConfigurationController.class);

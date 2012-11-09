@@ -1,5 +1,7 @@
 package com.liferay.ecommerce.util.spring;
 
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.DatabasePopulator;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -33,13 +36,19 @@ public class DatabaseContextConfig {
 	@Value("${jdbc.default.password:}")
 	private String password;
 
+	@Value("${jdbc.default.clean:}")
+	private boolean dbClean;
+
 	@Autowired
 	@Qualifier("liferayDataSource")
 	private DataSource liferayDataSource;
-	
+
+	@Autowired
+	private DatabasePopulator databasePopulator;
+
 	@SuppressWarnings("deprecation")
 	public @Bean
-	LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setJpaVendorAdapter(jpaAdapter);
 		DataSource dataSource = null;
@@ -52,8 +61,10 @@ public class DatabaseContextConfig {
 		} else if (liferayDataSource != null) {
 			dataSource = liferayDataSource;
 		}
+		if (dbClean) {
+			databasePopulator.populate(dataSource.getConnection());
+		}
 		entityManagerFactoryBean.setDataSource(dataSource);
 		return entityManagerFactoryBean;
 	}
-
 }

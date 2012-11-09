@@ -4,14 +4,13 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.liferay.ecommerce.dao.store.StoreDataAccess;
 import com.liferay.ecommerce.model.Store;
 import com.liferay.ecommerce.service.store.StoreService;
 
-@Service
+//@Service
 public class EugenStoreServiceTestImpl implements StoreService {
 
 	private static Logger LOG = Logger.getLogger(EugenStoreServiceTestImpl.class);
@@ -38,6 +37,12 @@ public class EugenStoreServiceTestImpl implements StoreService {
 	public List<Store> getAll() {
 		LOG.info("Test Service");
 		return storeDataAccess.getAll();
+	}
+
+	@Override
+	public Store getDefaultStore() {
+		LOG.info("Test Service");
+		return storeDataAccess.getFirstStore();
 	}
 
 }

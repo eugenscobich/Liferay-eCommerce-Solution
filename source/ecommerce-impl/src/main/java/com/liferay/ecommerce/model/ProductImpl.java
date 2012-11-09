@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity(name = "Product")
 @Table(name = "product")
 @NamedQueries({ @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId"),
-		@NamedQuery(name = "Product.getNumberOfProducts", query = "SELECT COUNT(*) FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId") })
+		@NamedQuery(name = "Product.totalNumber", query = "SELECT COUNT(*) FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId") })
 public class ProductImpl extends BaseModelImpl implements Product {
 
 	private static final long serialVersionUID = 1L;

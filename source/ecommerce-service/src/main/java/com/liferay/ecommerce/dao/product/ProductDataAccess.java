@@ -9,4 +9,6 @@ public interface ProductDataAccess extends BaseDataAccess<Product> {
 
 	List<Product> getProductsForPage(Long storeId, Integer page, Integer rows);
 
+	Long getNumberOfProducts(Long storeId);
+
 }

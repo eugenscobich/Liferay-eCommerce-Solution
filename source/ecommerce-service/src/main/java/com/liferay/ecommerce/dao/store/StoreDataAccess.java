@@ -5,5 +5,6 @@ import com.liferay.ecommerce.model.Store;
 
 public interface StoreDataAccess extends BaseDataAccess<Store> {
 
+	Store getFirstStore();
 
 }

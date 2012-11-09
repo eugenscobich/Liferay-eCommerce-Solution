@@ -1,6 +1,7 @@
 package com.liferay.ecommerce.controller.portlet.administration;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
@@ -12,18 +13,20 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
+import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 
-import com.liferay.ecommerce.controller.portlet.BaseController;
 import com.liferay.ecommerce.model.Product;
 import com.liferay.ecommerce.model.Store;
 import com.liferay.ecommerce.service.product.ProductService;
 import com.liferay.ecommerce.service.store.StoreService;
+import com.liferay.ecommerce.util.JsonUtil;
 import com.liferay.ecommerce.util.WebUtil;
 
 @Controller
 @RequestMapping(value = "VIEW")
-public class ProductsController extends BaseController {
+public class ProductsController extends BaseAdminController {
 
 	// private static Logger LOG = Logger.getLogger(ProductsController.class);
 
@@ -42,9 +45,12 @@ public class ProductsController extends BaseController {
 		return "products-view";
 	}
 
-	public String getProductsForPage(ResourceRequest request, ResourceResponse resourceResponse, @RequestParam Integer page, @RequestParam Integer rows) {
+	@ResourceMapping("getProductsForPage")
+	@ResponseBody
+	public Map<String, Object> getProductsForPage(ResourceRequest request, ResourceResponse resourceResponse, @RequestParam Integer page, @RequestParam Integer rows) {
 		Store store = WebUtil.getAdminCurrentStore(request);
 		List<Product> products = productService.getProductsForPage(store, page, rows);
-		return WebUtil.returnJSON(request, products);
+		Long total = productService.getNumberOfProducts(store);
+		return JsonUtil.getPaginationData(products, total);
 	}
 }

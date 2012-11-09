@@ -1,21 +1,19 @@
 package com.liferay.ecommerce.util;
 
 import javax.portlet.PortletRequest;
-import javax.portlet.ResourceRequest;
-
-import net.sf.json.JSONSerializer;
+import javax.portlet.PortletSession;
 
 import com.liferay.ecommerce.model.Store;
 import com.liferay.ecommerce.service.system.Constant;
 
 public class WebUtil {
 
-	public static Store getAdminCurrentStore(ResourceRequest request) {
-		return (Store) request.getAttribute(Constant.ADMIN_CURRENT_STORE_SESSION_ATTR);
+	public static Store getAdminCurrentStore(PortletRequest request) {
+		return (Store) request.getPortletSession().getAttribute(Constant.ADMIN_CURRENT_STORE_SESSION_ATTR, PortletSession.APPLICATION_SCOPE);
 	}
 
-	public static String returnJSON(PortletRequest request, Object obj) {
-		request.setAttribute("json", JSONSerializer.toJSON(obj).toString());
-		return "json-response";
+	public static void setAdminCurrentStore(PortletRequest request, Store store) {
+		request.getPortletSession().setAttribute(Constant.ADMIN_CURRENT_STORE_SESSION_ATTR, store, PortletSession.APPLICATION_SCOPE);
 	}
+
 }

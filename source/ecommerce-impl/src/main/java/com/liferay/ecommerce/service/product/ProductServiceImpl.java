@@ -21,4 +21,10 @@ public class ProductServiceImpl implements ProductService {
 		ServiceUtil.validateStore(store);
 		return productDataAccess.getProductsForPage(store.getId(), page, rows);
 	}
+
+	@Override
+	public Long getNumberOfProducts(Store store) {
+		ServiceUtil.validateStore(store);
+		return productDataAccess.getNumberOfProducts(store.getId());
+	}
 }

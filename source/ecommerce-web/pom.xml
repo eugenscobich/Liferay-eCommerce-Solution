@@ -68,11 +68,22 @@
 			<artifactId>tiles-jsp</artifactId>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
 			<classifier>jdk15</classifier>
+		</dependency> -->
+		
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-hibernate4</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}-6.1.0</finalName>

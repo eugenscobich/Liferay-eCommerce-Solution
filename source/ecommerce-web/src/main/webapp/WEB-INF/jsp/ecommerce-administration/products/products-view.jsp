@@ -3,13 +3,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 
-<<portlet:resourceURL var="getProductsForPageResource" id="getProductsForPage"/>
+<portlet:resourceURL var="getProductsForPageResource" id="getProductsForPage"/>
 
 <div>
 	<div id="ecommerce-admin-products-toolbar">
-		<a href="#" id="product-add"><spring:message code="add" /></a>
-		<a href="#" id="product-edit"><spring:message code="edit" /></a>
-		<a href="#" id="product-remove"><spring:message code="remove" /></a>
+		<a href="#" id="product-add"><spring:message code="Add" /></a>
+		<a href="#" id="product-edit"><spring:message code="Edit" /></a>
+		<a href="#" id="product-remove"><spring:message code="Remove" /></a>
 	</div>
 	<div>
 		<table id="ecommerce-admin-products-table" title='<spring:message code="Products"/>'></table>
@@ -19,7 +19,6 @@
 
 <script>
 $(function() {
-	
 	var $dataGrid = $('#ecommerce-admin-products-table').datagrid({  
 	    url:'${getProductsForPageResource}',  
 	    pagination: true,
@@ -76,8 +75,7 @@ $(function() {
 	
 	$productEditBtn.click(function(){
 		if (!($productEditBtn.linkbutton('options').disabled)) {
-			//window.location="${flowExecutionUrl}&_eventId=editCategory&categoryId=" + $dataGrid.treegrid('getSelected').id;
-			console.log('Edit");
+			console.log("Edit");
 		}
 	});
 	
@@ -94,7 +92,7 @@ $(function() {
 			$productRemoveBtn.linkbutton('disable');
 		} else if ($dataGrid.datagrid('getSelections').length == 1) {
 			$productEditBtn.linkbutton('enable');
-			$categoryRemoveBtn.linkbutton('enable');
+			$productRemoveBtn.linkbutton('enable');
 		} else {
 			$productEditBtn.linkbutton('disable');
 			$productRemoveBtn.linkbutton('enable');

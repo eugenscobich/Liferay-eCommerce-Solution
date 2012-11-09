@@ -33,4 +33,8 @@ public class StoreServiceImpl implements StoreService {
 		return storeDataAccess.getAll();
 	}
 
+	@Override
+	public Store getDefaultStore() {
+		return storeDataAccess.getFirstStore();
+	}
 }

@@ -9,4 +9,6 @@ public interface ProductService {
 
 	List<Product> getProductsForPage(Store store, Integer page, Integer rows);
 
+	Long getNumberOfProducts(Store store);
+
 }
