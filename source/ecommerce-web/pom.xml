@@ -74,16 +74,6 @@
 			<classifier>jdk15</classifier>
 		</dependency> -->
 		
-		<!-- JSON -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-hibernate4</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-		</dependency>
-		
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}-6.1.0</finalName>

@@ -68,7 +68,6 @@ public class ProductDetailsImpl extends BaseModelImpl implements ProductDetails 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastModifiedDate;
 
-	
 	@Override
 	public ProductStatus getProductStatus() {
 		return productStatus;
@@ -123,7 +122,7 @@ public class ProductDetailsImpl extends BaseModelImpl implements ProductDetails 
 	public boolean isInvisible() {
 		return invisible;
 	}
-	
+
 	@Override
 	public void setInvisible(boolean invisible) {
 		this.invisible = invisible;
@@ -143,7 +142,7 @@ public class ProductDetailsImpl extends BaseModelImpl implements ProductDetails 
 	public String getModel() {
 		return model;
 	}
-	
+
 	@Override
 	public void setModel(String model) {
 		this.model = model;

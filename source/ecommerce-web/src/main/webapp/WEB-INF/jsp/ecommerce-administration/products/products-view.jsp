@@ -42,7 +42,7 @@ $(function() {
 			title : '<spring:message code="Sku" />',
 			width : 80
 		}, {
-			field : 'productType',
+			field : 'productDetails.productType',
 			title : '<spring:message code="Product-type" />',
 			width : 80
 		} ] ]
