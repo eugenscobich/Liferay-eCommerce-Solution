@@ -6,18 +6,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="ecommerce-admin">
-
-	<div>
-		<spring:message code="Current-Store" />:
-		<form action='<portlet:actionURL name="select-store"/>' method="post" name="selectStoreForm">
-			<select name="storeId" onchange="document.selectStoreForm.submit()">
-				<c:forEach items="${stores}" var="store">
-					<option value="${store.id}" <c:if test="${sessionScope.adminCurrentStore.id == store.id}">selected="true"</c:if>>${store.name}</option>
-				</c:forEach>
-			</select>
-		</form>
-	</div>
-
 	<div class="ecommerce-admin-menu">
 		<tiles:importAttribute name="menuIndex" scope="request" />
 		<tiles:insertDefinition name="admin-menu" />

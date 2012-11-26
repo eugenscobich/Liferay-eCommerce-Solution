@@ -4,11 +4,6 @@
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 
 <portlet:resourceURL var="getProductsForPageResource" id="getProductsForPage"/>
-<portlet:renderURL var="addProductView">
-	<portlet:param name="view" value="add-product-view" />
-</portlet:renderURL>
-
-<portlet:actionURL var="addProductAction" name="addProduct"></portlet:actionURL>
 
 <div>
 	<div id="ecommerce-admin-products-toolbar">
@@ -43,17 +38,13 @@ $(function() {
 			field : 'ck',
 			checkbox : true
 		}, {
-			field : 'productDescriptions[0].name',
-			title : '<spring:message code="Name" />',
-			width:100
-		}, {
 			field : 'productDetails.sku',
 			title : '<spring:message code="Sku" />',
-			width:100
+			width : 80
 		}, {
 			field : 'productDetails.productType',
 			title : '<spring:message code="Product-type" />',
-			width:100
+			width : 80
 		} ] ]
 	});  
 	
@@ -77,7 +68,8 @@ $(function() {
 	
 	$productAddBtn.click(function(){
 		if (!($productAddBtn.linkbutton('options').disabled)) {
-			window.location="${addProductView}";
+			var getSelected = $dataGrid.datagrid('getSelected');
+			console.log("Add: " + getSelected);
 		}
 	});
 	

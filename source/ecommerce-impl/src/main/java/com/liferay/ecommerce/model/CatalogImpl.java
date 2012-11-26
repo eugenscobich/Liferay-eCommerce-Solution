@@ -13,17 +13,17 @@ import javax.persistence.Table;
 public class CatalogImpl extends BaseModelImpl implements Catalog {
 
 	private static final long serialVersionUID = 1L;
-	
-	@ManyToOne(targetEntity=CatalogDescriptionImpl.class)
-	@JoinColumn(name="catalog_id")
+
+	@ManyToOne(targetEntity = CatalogDescriptionImpl.class)
+	@JoinColumn(name = "catalog_id")
 	private Set<CatalogDescription> catalogDescriptions;
 
-	@ManyToOne(targetEntity=CatalogImpl.class)
-	@JoinColumn(name="parent_catalog_id")
+	@ManyToOne(targetEntity = CatalogImpl.class)
+	@JoinColumn(name = "parent_catalog_id")
 	private Set<Catalog> subcatalogs;
-	
-	@ManyToOne(targetEntity=StoreImpl.class)
-	@JoinTable(name = "catalog_to_store", joinColumns = { @JoinColumn(name = "catalog_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
+
+	@ManyToOne(targetEntity = StoreImpl.class)
+	@JoinTable(name = "store_to_catalog", joinColumns = { @JoinColumn(name = "catalog_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
 	private Set<Store> stores;
 
 	@Override
@@ -55,6 +55,5 @@ public class CatalogImpl extends BaseModelImpl implements Catalog {
 	public void setSubcatalogs(Set<Catalog> subcatalogs) {
 		this.subcatalogs = subcatalogs;
 	}
-	
-	 
+
 }

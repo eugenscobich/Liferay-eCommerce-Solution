@@ -6,18 +6,10 @@
 <tiles-definitions>
 	<definition name="admin-layout"	template="/WEB-INF/jsp/ecommerce-administration/admin-layout.jsp" preparer="com.liferay.ecommerce.util.Tiles2Preparer"/>
 
-	<definition name="admin-view" extends="admin-layout">
-		<put-attribute name="admin-content" value="/WEB-INF/jsp/ecommerce-administration/admin-view.jsp" type="template"/>
-		<put-attribute name="menuIndex" value="1.1" type="string" />
-		<put-list-attribute name="">
-		<item link="" value=""></item>
-		</put-list-attribute>
-	</definition>
-	
+	<definition name="admin-view" template="/WEB-INF/jsp/ecommerce-administration/admin-view.jsp" preparer="com.liferay.ecommerce.util.Tiles2Preparer"/>
+
 	<definition name="admin-menu" template="/WEB-INF/jsp/ecommerce-administration/admin-menu.jsp" />
 	
 	<definition name="json-response" template="/WEB-INF/jsp/ecommerce-administration/json-response.jsp" />
-	
-	
 	
 </tiles-definitions>

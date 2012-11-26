@@ -2,6 +2,8 @@ package com.liferay.ecommerce.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -12,8 +14,9 @@ public class ProductDescriptionImpl extends BaseModelImpl implements ProductDesc
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "locale")
-	private String locale;
+	@ManyToOne(targetEntity = LanguageImpl.class)
+	@JoinColumn(name = "language_id")
+	private Language language;
 
 	@Column(name = "name")
 	private String name;
@@ -23,13 +26,13 @@ public class ProductDescriptionImpl extends BaseModelImpl implements ProductDesc
 	private String description;
 
 	@Override
-	public String getLocale() {
-		return locale;
+	public Language getLanguage() {
+		return language;
 	}
 
 	@Override
-	public void setLocale(String locale) {
-		this.locale = locale;
+	public void setLanguage(Language language) {
+		this.language = language;
 	}
 
 	@Override

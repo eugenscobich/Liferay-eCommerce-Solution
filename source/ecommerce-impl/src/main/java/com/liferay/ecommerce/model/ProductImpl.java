@@ -13,10 +13,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity(name = "Product")
 @Table(name = "product")
-@NamedQueries({ @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId"),
+@NamedQueries({
+		@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p INNER JOIN p.stores s LEFT JOIN FETCH p.productDescriptions pdcpr WHERE s.id = :storeId and pdcpr.language.id = :languageId"),
 		@NamedQuery(name = "Product.totalNumber", query = "SELECT COUNT(*) FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId") })
 public class ProductImpl extends BaseModelImpl implements Product {
 
@@ -51,8 +53,11 @@ public class ProductImpl extends BaseModelImpl implements Product {
 	private Set<DigitalDownload> digitalDownloads;
 
 	@ManyToMany(targetEntity = StoreImpl.class)
-	@JoinTable(name = "product_to_store", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
+	@JoinTable(name = "store_to_product", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
 	private Set<Store> stores;
+
+	@Transient
+	private ProductDescription productDescription;
 
 	@Override
 	public Set<ProductDescription> getProductDescriptions() {
@@ -132,6 +137,16 @@ public class ProductImpl extends BaseModelImpl implements Product {
 	@Override
 	public void setStores(Set<Store> stores) {
 		this.stores = stores;
+	}
+
+	@Override
+	public ProductDescription getProductDescription() {
+		return productDescription;
+	}
+
+	@Override
+	public void setProductDescription(ProductDescription productDescription) {
+		this.productDescription = productDescription;
 	}
 
 }

@@ -37,4 +37,8 @@ public interface Product extends BaseModel {
 
 	void setStores(Set<Store> stores);
 
+	ProductDescription getProductDescription();
+
+	void setProductDescription(ProductDescription productDescription);
+
 }

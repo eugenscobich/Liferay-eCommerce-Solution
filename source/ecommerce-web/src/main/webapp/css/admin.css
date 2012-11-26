@@ -18,3 +18,39 @@
 .ecommerce-admin-menu .admin-menu-selected {
 	background-color: #aaa;
 }
+
+ul.title-value-pair {
+	display: block;
+	overflow: hidden;
+}
+
+ul.title-value-pair  li {
+	line-height: 20px;
+	margin-bottom: 4px;
+	display: block;
+}
+
+ul.title-value-pair li:FIRST-CHILD {
+	width: 150px;
+	float: left;
+}
+
+.admin-view-center {
+	vertical-align: middle;
+	height: 100%;
+}
+
+.admin-view-center ul {
+	margin: 0 auto;
+	width: 160px;
+}
+
+.admin-view-center .submit {
+	margin: 0 auto;
+	width: 50px !important;
+	float: none !important;
+}
+
+.w100px {
+	width: 100px !important;
+}

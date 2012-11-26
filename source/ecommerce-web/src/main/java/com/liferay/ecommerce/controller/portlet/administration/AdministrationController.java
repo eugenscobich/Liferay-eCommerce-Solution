@@ -27,8 +27,6 @@ public class AdministrationController extends BaseAdminController {
 
 	@RenderMapping
 	public String view(RenderRequest request, RenderResponse response) {
-		request.setAttribute("message", "Admin");
-		WebUtil.setAdminCurrentStore(request, storeService.getDefaultStore());
 		return "admin-view";
 	}
 
@@ -36,5 +34,6 @@ public class AdministrationController extends BaseAdminController {
 	public void selectStore(ActionRequest request, ActionResponse response, @RequestParam("storeId") Long storeId) {
 		WebUtil.setAdminCurrentStore(request, storeService.get(storeId));
 		LOG.info(storeId);
+		response.setRenderParameter("view", "store-view");
 	}
 }

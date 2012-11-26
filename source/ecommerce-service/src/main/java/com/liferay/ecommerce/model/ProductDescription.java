@@ -2,9 +2,9 @@ package com.liferay.ecommerce.model;
 
 public interface ProductDescription {
 
-	String getLocale();
+	Language getLanguage();
 
-	void setLocale(String locale);
+	void setLanguage(Language language);
 
 	String getName();
 

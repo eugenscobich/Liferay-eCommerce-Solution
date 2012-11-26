@@ -14,9 +14,10 @@ import com.liferay.ecommerce.model.ProductImpl;
 public class ProductDataAccessImpl extends BaseDataAccessImpl<ProductImpl, Product> implements ProductDataAccess {
 
 	@Override
-	public List<Product> getProductsForPage(Long storeId, Integer page, Integer rows) {
+	public List<Product> getProductsForPage(Long storeId, Integer page, Integer rows, Long languageId) {
 		TypedQuery<Product> query = entityManager.createNamedQuery("Product.findAll", Product.class);
 		query.setParameter("storeId", storeId);
+		query.setParameter("languageId", languageId);
 		query.setFirstResult((page - 1) * rows);
 		query.setMaxResults(rows);
 		return query.getResultList();

@@ -1,6 +1,6 @@
 package com.liferay.ecommerce.model;
 
-public interface Currency {
+public interface Currency extends BaseModel {
 
 	String getCode();
 

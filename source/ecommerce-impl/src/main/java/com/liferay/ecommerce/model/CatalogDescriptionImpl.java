@@ -12,8 +12,8 @@ public class CatalogDescriptionImpl extends BaseModelImpl implements CatalogDesc
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "locale")
-	private String locale;
+	@Column(name = "language")
+	private String language;
 
 	@Column(name = "name")
 	private String name;
@@ -23,13 +23,13 @@ public class CatalogDescriptionImpl extends BaseModelImpl implements CatalogDesc
 	private String description;
 
 	@Override
-	public String getLocale() {
-		return locale;
+	public String getLanguage() {
+		return language;
 	}
 
 	@Override
-	public void setLocale(String locale) {
-		this.locale = locale;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	@Override

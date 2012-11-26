@@ -5,8 +5,8 @@ VALUES (1, '2012-11-08 20:00:00', '2012-11-08 20:00:00', '2013-11-08 20:00:00', 
 
 INSERT INTO ecommerce_product (id, product_details_id) VALUES (1, 1);
 
-INSERT INTO ecommerce_product_description (id, description, locale, name, product_id) VALUES (1, 'Cool product', 'en_EN', 'Video Card', 1);
-INSERT INTO ecommerce_product_description (id, description, locale, name, product_id) VALUES (2, 'Produs Bun', 'ro_RO', 'Video Cartela', 1);
+INSERT INTO ecommerce_product_description (id, description, language, name, product_id) VALUES (1, 'Cool product', 'en', 'Video Card', 1);
+INSERT INTO ecommerce_product_description (id, description, language, name, product_id) VALUES (2, 'Produs Bun', 'ro', 'Video Cartela', 1);
 
 INSERT INTO ecommerce_currency (id, code) VALUES (1, 'USD');
 

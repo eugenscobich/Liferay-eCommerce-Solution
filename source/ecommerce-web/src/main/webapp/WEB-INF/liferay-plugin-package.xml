@@ -5,6 +5,7 @@
 	<name>Liferay eCommerce</name>
 	<module-id>liferay/ecommerce-web/6.1.0/war</module-id>
 	<types>
+		<type>web</type>
 		<type>portlet</type>
 	</types>
 	<tags>
