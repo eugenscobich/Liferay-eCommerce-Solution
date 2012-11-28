@@ -9,18 +9,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.liferay.ecommerce.model.Language;
 import com.liferay.ecommerce.model.Product;
 import com.liferay.ecommerce.model.Store;
 import com.liferay.ecommerce.service.language.LanguageService;
 import com.liferay.ecommerce.service.store.StoreService;
+import com.liferay.ecommerce.util.ECommerceJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+
+@RunWith(ECommerceJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test-context.xml")
 public class ProductServiceTest {
-
 	@Autowired
 	private ProductService productService;
 
@@ -32,6 +32,7 @@ public class ProductServiceTest {
 
 	@Test
 	public void testGetProductsForPage() {
+
 		Store store = storeService.get(1l);
 		Language language = languageService.getLanguageByCode(store, "en");
 		List<Product> products = productService.getProductsForPage(store, 1, 10, language);
@@ -39,5 +40,6 @@ public class ProductServiceTest {
 		assertNotNull(products.get(0));
 		assertEquals(1, products.get(0).getProductDescriptions().size());
 		assertNotNull(products.get(0).getProductDetails());
+
 	}
 }

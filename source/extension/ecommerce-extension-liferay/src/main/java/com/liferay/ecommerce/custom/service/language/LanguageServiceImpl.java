@@ -56,7 +56,7 @@ public class LanguageServiceImpl implements LanguageService {
 		if (language == null) {
 			Language lang = systemLanguageService.getNewLanguage();
 			lang.setCode(languageCode);
-			lang.setStores(store);
+			lang.getStores().add(store);
 			systemLanguageService.save(lang);
 			return lang;
 		}

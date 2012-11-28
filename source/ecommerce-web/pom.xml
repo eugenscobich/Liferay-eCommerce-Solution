@@ -17,8 +17,7 @@
 
 		<dependency>
 			<groupId>com.liferay.ecommerce</groupId>
-			<artifactId>ecommerce-impl</artifactId>
-			<version>${project.version}</version>
+			<artifactId>ecommerce-service</artifactId>
 		</dependency>
 
 		<dependency>
@@ -52,14 +51,10 @@
 			<artifactId>portlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>com.liferay.ecommerce</groupId>
 			<artifactId>ecommerce-extension-liferay</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.eugen.test</groupId>
-			<artifactId>ecommerce-extension-test</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
@@ -68,12 +63,15 @@
 			<artifactId>tiles-jsp</artifactId>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>net.sf.json-lib</groupId>
-			<artifactId>json-lib</artifactId>
-			<classifier>jdk15</classifier>
-		</dependency> -->
-		
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-hibernate4</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}-6.1.0</finalName>

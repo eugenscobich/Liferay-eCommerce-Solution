@@ -51,6 +51,7 @@ public class DatabaseContextConfig {
 	LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setJpaVendorAdapter(jpaAdapter);
+		entityManagerFactoryBean.setPersistenceUnitName("ecommercePersistenceUnit");
 		DataSource dataSource = null;
 		if (!jndiName.isEmpty()) {
 			JndiDataSourceLookup jndiDataSourceLookup = new JndiDataSourceLookup();

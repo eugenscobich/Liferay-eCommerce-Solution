@@ -32,7 +32,6 @@
 	<bean id="jpaAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<property name="database" value="${jdbc.jpa.database}" />
 		<property name="showSql" value="${jdbc.jpa.show.sql}" />
-		<property name="databasePlatform" value="${jdbc.jpa.database.platform}" />
 	</bean>
 
 </beans>

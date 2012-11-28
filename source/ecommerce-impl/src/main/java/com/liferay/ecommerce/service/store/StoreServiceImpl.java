@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.liferay.ecommerce.dao.store.StoreDataAccess;
 import com.liferay.ecommerce.model.Store;
+import com.liferay.ecommerce.model.StoreImpl;
 
 @Service
 public class StoreServiceImpl implements StoreService {
@@ -36,5 +37,10 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public Store getDefaultStore() {
 		return storeDataAccess.getFirstStore();
+	}
+
+	@Override
+	public Store getNewStore() {
+		return new StoreImpl();
 	}
 }

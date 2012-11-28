@@ -1,26 +1,25 @@
 package com.liferay.ecommerce.service.store;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.liferay.ecommerce.model.Store;
-import com.liferay.ecommerce.model.StoreImpl;
+import com.liferay.ecommerce.util.ECommerceJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(ECommerceJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test-context.xml")
 public class StoreServiceTest {
 
 	@Autowired
 	private StoreService storeService;
-	
+
 	@Test
 	public void testSaveStore() {
-		Store store = new StoreImpl();
+		Store store = storeService.getNewStore();
 		store.setName("Eugen");
 		storeService.save(store);
 		assertNotNull(store);

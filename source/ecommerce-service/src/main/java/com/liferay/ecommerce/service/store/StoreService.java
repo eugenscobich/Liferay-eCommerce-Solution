@@ -14,4 +14,6 @@ public interface StoreService {
 
 	Store getDefaultStore();
 
+	Store getNewStore();
+
 }

@@ -14,7 +14,6 @@
 		<dependency>
 			<groupId>com.liferay.ecommerce</groupId>
 			<artifactId>ecommerce-service</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>

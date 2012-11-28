@@ -1,5 +1,6 @@
 package com.liferay.ecommerce.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ public class LanguageImpl extends BaseModelImpl implements Language {
 
 	@ManyToOne(targetEntity = StoreImpl.class)
 	@JoinTable(name = "store_to_language", joinColumns = { @JoinColumn(name = "language_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
-	private Set<Store> stores;
+	private Set<Store> stores = new HashSet<Store>();
 
 	@Override
 	public String getCode() {
