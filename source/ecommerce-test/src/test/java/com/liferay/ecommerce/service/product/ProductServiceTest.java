@@ -18,6 +18,7 @@ import com.liferay.ecommerce.service.store.StoreService;
 import com.liferay.ecommerce.util.ECommerceJUnit4ClassRunner;
 
 
+
 @RunWith(ECommerceJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:test-context.xml")
 public class ProductServiceTest {
@@ -41,5 +42,13 @@ public class ProductServiceTest {
 		assertEquals(1, products.get(0).getProductDescriptions().size());
 		assertNotNull(products.get(0).getProductDetails());
 
+	}
+
+	@Test
+	public void testGetNewProduct() {
+		Store store = storeService.get(1l);
+		Product product = productService.getNewProduct(store);
+		assertNotNull(product);
+		assertEquals(38, product.getProductDescriptions().size());
 	}
 }

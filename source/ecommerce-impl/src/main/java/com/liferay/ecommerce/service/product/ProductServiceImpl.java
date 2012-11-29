@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
+	@Transactional
 	public Product getNewProduct(Store store) {
 		Product product = new ProductImpl();
 		// Prepare product description
@@ -66,6 +66,6 @@ public class ProductServiceImpl implements ProductService {
 		//List<Currency> currencies = 
 		//product.set
 
-		return null;
+		return product;
 	}
 }

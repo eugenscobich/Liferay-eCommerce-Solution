@@ -15,4 +15,7 @@ public interface LanguageService {
 
 	void save(Language language);
 
+	List<Language> getLanguagesByCodes(Store store, List<String> languageCodes);
+
+	void remove(Language language);
 }

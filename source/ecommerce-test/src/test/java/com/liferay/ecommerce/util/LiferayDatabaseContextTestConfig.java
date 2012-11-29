@@ -14,24 +14,25 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 
 
+
+
+
 @Configuration
 public class LiferayDatabaseContextTestConfig {
+		@Autowired
+		private HibernateJpaVendorAdapter jpaAdapter;
 
-	@Autowired
-	private HibernateJpaVendorAdapter jpaAdapter;
+		@Autowired
+		private DatabasePopulator databasePopulator;
 
-	@Autowired
-	private DatabasePopulator databasePopulator;
-
-	public @Bean
-	LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
-		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-		entityManagerFactoryBean.setJpaVendorAdapter(jpaAdapter);
-		entityManagerFactoryBean.setPersistenceUnitName("ecommercePersistenceUnit");
-		DataSource dataSource = InfrastructureUtil.getDataSource();
-		// databasePopulator.populate(dataSource.getConnection());
-		entityManagerFactoryBean.setDataSource(dataSource);
-		return entityManagerFactoryBean;
-	}
-
+		public @Bean
+		LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
+			LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+			entityManagerFactoryBean.setJpaVendorAdapter(jpaAdapter);
+			entityManagerFactoryBean.setPersistenceUnitName("ecommercePersistenceUnit");
+			DataSource dataSource = InfrastructureUtil.getDataSource();
+		databasePopulator.populate(dataSource.getConnection());
+			entityManagerFactoryBean.setDataSource(dataSource);
+			return entityManagerFactoryBean;
+		}
 }

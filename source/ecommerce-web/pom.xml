@@ -4,8 +4,6 @@
 	<artifactId>ecommerce-web</artifactId>
 	<packaging>war</packaging>
 
-
-
 	<parent>
 		<groupId>com.liferay.ecommerce</groupId>
 		<artifactId>ecommerce</artifactId>
@@ -26,7 +24,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>jstl</groupId>
+			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
 

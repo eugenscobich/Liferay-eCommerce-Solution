@@ -9,27 +9,57 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../ecommerce/pom.xml</relativePath>
 	</parent>
-
-	<dependencies>
+	<dependencies> 
 		<dependency>
 			<groupId>com.liferay.ecommerce</groupId>
 			<artifactId>ecommerce-impl</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>hibernate-core</artifactId>
-					<groupId>org.hibernate</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.liferay.ecommerce</groupId>
+			<artifactId>ecommerce-extension-liferay</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>portal-service</artifactId>
+			<!-- <version>6.1.1</version> -->
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<!-- <version>1.4.5</version> -->
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<!-- <version>2.5</version> -->
+		</dependency>
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<!-- <version>2.0</version> -->
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<!-- <version>1.2</version> -->
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<!-- <version>2.1</version> -->
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
-
-
 	<build>
 		<plugins>
 			<plugin>
@@ -37,25 +67,6 @@
 				<configuration>
 					<argLine>-Xmx1024m -XX:MaxPermSize=512m</argLine>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.googlecode.addjars-maven-plugin</groupId>
-				<artifactId>addjars-maven-plugin</artifactId>
-				<version>1.0.4</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>add-jars</goal>
-						</goals>
-						<configuration>
-							<resources>
-								<resource>
-									<directory>${basedir}/lib</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

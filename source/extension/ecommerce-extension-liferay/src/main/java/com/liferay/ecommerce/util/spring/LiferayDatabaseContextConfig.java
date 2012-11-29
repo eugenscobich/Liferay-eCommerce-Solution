@@ -11,7 +11,7 @@ import com.liferay.portal.kernel.util.InfrastructureUtil;
 @Configuration
 public class LiferayDatabaseContextConfig {
 
-	@Value("${jdbc.default.use.liferay.datasource:}")
+	@Value("${jdbc.default.use.liferay.datasource:false}")
 	private String useLiferayDataSource;
 	
 	public @Bean DataSource liferayDataSource() throws Exception {

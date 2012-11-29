@@ -55,4 +55,35 @@ public class ProductDescriptionImpl extends BaseModelImpl implements ProductDesc
 		this.description = description;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((language == null) ? 0 : language.hashCode());
+		result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProductDescriptionImpl other = (ProductDescriptionImpl) obj;
+		if (language == null) {
+			if (other.language != null)
+				return false;
+		} else if (!language.equals(other.language))
+			return false;
+		if (getId() == null) {
+			if (other.getId() != null)
+				return false;
+		} else if (!getId().equals(other.getId()))
+			return false;
+		return true;
+	}
+
 }
