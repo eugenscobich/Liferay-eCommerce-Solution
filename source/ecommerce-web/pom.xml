@@ -15,7 +15,7 @@
 
 		<dependency>
 			<groupId>com.liferay.ecommerce</groupId>
-			<artifactId>ecommerce-service</artifactId>
+			<artifactId>ecommerce-impl</artifactId>
 		</dependency>
 
 		<dependency>
