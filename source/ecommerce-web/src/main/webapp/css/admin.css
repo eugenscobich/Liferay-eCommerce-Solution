@@ -58,3 +58,7 @@ ul.title-value-pair li:FIRST-CHILD {
 .ecommerce-admin-content-tab {
 	width: 100%;
 }
+
+.field-has-errors {
+	border: 1px solid red;
+}

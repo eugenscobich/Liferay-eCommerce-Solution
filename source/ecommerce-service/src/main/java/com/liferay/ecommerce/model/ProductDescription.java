@@ -14,4 +14,8 @@ public interface ProductDescription {
 
 	void setDescription(String description);
 
+	Boolean getIsDefault();
+
+	void setIsDefault(Boolean isDefault);
+
 }

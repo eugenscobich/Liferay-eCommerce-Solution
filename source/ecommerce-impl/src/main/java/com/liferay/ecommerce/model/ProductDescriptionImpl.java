@@ -25,6 +25,9 @@ public class ProductDescriptionImpl extends BaseModelImpl implements ProductDesc
 	@Type(type = "text")
 	private String description;
 
+	@Column(name = "is_default")
+	private Boolean isDefault;
+
 	@Override
 	public Language getLanguage() {
 		return language;
@@ -53,6 +56,16 @@ public class ProductDescriptionImpl extends BaseModelImpl implements ProductDesc
 	@Override
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Override
+	public Boolean getIsDefault() {
+		return isDefault;
+	}
+
+	@Override
+	public void setIsDefault(Boolean isDefault) {
+		this.isDefault = isDefault;
 	}
 
 	@Override

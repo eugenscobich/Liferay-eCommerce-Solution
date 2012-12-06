@@ -62,3 +62,10 @@
 .icon-mini-refresh{
 	background:url('icons/mini_refresh.png') no-repeat 3px 2px;
 }
+.l-btn-icon-left {
+	padding-left: 20px !important;
+}
+
+.l-btn-icon-right {
+	padding-right: 20px !important;
+}
