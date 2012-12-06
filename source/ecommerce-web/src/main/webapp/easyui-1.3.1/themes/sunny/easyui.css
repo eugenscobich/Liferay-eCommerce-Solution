@@ -1294,7 +1294,7 @@ a.s-btn-plain-active .s-btn-downarrow{
 	padding:0px;
 	padding-left:4px;
 	font-size:12px;
-	width:5000px;
+	//width:5000px;
 	border-bottom:1px solid #8E846B;
 }
 .tabs li{

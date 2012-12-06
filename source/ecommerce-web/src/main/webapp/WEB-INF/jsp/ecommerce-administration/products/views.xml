@@ -9,4 +9,11 @@
 		<put-attribute name="menuIndex" value="3.1" type="string"/>
 	</definition>
 	
+	<definition name="product-edit" extends="admin-layout">
+		<put-attribute name="admin-content" value="/WEB-INF/jsp/ecommerce-administration/products/product-edit.jsp"/>
+		<put-attribute name="menuIndex" value="3.1" type="string"/>
+	</definition>
+	
+	<definition name="product-edit-description" template="/WEB-INF/jsp/ecommerce-administration/products/product-edit-description.jsp" />
+	
 </tiles-definitions>

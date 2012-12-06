@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.liferay.ecommerce.dao.product.ProductDataAccess;
+import com.liferay.ecommerce.model.Currency;
 import com.liferay.ecommerce.model.Language;
+import com.liferay.ecommerce.model.Price;
+import com.liferay.ecommerce.model.PriceImpl;
 import com.liferay.ecommerce.model.Product;
 import com.liferay.ecommerce.model.ProductDescription;
 import com.liferay.ecommerce.model.ProductDescriptionImpl;
@@ -17,6 +20,7 @@ import com.liferay.ecommerce.model.ProductDetails;
 import com.liferay.ecommerce.model.ProductDetailsImpl;
 import com.liferay.ecommerce.model.ProductImpl;
 import com.liferay.ecommerce.model.Store;
+import com.liferay.ecommerce.service.currency.CurrencyService;
 import com.liferay.ecommerce.service.language.LanguageService;
 import com.liferay.ecommerce.util.ServiceUtil;
 
@@ -29,6 +33,9 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private LanguageService languageService;
 
+	@Autowired
+	private CurrencyService currencyService;
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Product> getProductsForPage(Store store, Integer page, Integer rows, Language language) {
@@ -48,6 +55,7 @@ public class ProductServiceImpl implements ProductService {
 	@Transactional
 	public Product getNewProduct(Store store) {
 		Product product = new ProductImpl();
+
 		// Prepare product description
 		List<Language> languages = languageService.getAvailableLanguages(store);
 		Set<ProductDescription> productDescriptions = new HashSet<ProductDescription>();
@@ -63,8 +71,14 @@ public class ProductServiceImpl implements ProductService {
 		product.setProductDetails(productDetails);
 
 		// Prepare product prices
-		//List<Currency> currencies = 
-		//product.set
+		List<Currency> currencies = currencyService.getAvailableCurrency(store);
+		Set<Price> prices = new HashSet<Price>();
+		for (Currency currency : currencies) {
+			Price price = new PriceImpl();
+			price.setCurrency(currency);
+			prices.add(price);
+		}
+		product.setPrices(prices);
 
 		return product;
 	}

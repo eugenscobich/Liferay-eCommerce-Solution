@@ -50,5 +50,6 @@ public class ProductServiceTest {
 		Product product = productService.getNewProduct(store);
 		assertNotNull(product);
 		assertEquals(38, product.getProductDescriptions().size());
+		assertEquals(2, product.getPrices().size());
 	}
 }

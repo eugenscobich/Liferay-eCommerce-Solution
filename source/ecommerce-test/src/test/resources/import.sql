@@ -8,6 +8,7 @@ DELETE FROM ecommerce_product_description;
 DELETE FROM ecommerce_currency;
 DELETE FROM ecommerce_price;
 DELETE FROM ecommerce_store_to_product;
+DELETE FROM ecommerce_store_to_currency;
 SET DATABASE REFERENTIAL INTEGRITY TRUE; 
 
 
@@ -28,6 +29,9 @@ INSERT INTO ecommerce_product_description (id, description, language_id, name, p
 INSERT INTO ecommerce_product_description (id, description, language_id, name, product_id) VALUES (2, 'Produs Bun', 2, 'Video Cartela', 1);
 
 INSERT INTO ecommerce_currency (id, code) VALUES (1, 'USD');
+INSERT INTO ecommerce_currency (id, code) VALUES (2, 'MDL');
+INSERT INTO ecommerce_store_to_currency (currency_id, store_id) VALUES (1, 1);
+INSERT INTO ecommerce_store_to_currency (currency_id, store_id) VALUES (2, 1);
 
 INSERT INTO ecommerce_price (id, enable_special, end_date, price, special_price, start_date, currency_id, product_id) 
 VALUES (1, 0, null, 123.45, null, null, 1, 1);

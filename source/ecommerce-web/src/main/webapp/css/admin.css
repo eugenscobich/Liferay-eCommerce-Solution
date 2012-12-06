@@ -12,7 +12,7 @@
 
 .ecommerce-admin-content {
 	padding-left: 260px;
-	width: 100%;
+	//width: 100%;
 }
 
 .ecommerce-admin-menu .admin-menu-selected {
@@ -53,4 +53,8 @@ ul.title-value-pair li:FIRST-CHILD {
 
 .w100px {
 	width: 100px !important;
+}
+
+.ecommerce-admin-content-tab {
+	width: 100%;
 }

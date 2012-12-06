@@ -64,7 +64,8 @@ public class ProductsController extends BaseAdminController {
 	@RenderMapping(params = "view=add-product-view")
 	public String viewAddProduct(RenderRequest request, RenderResponse response, Model model) {
 		Store store = WebUtil.getAdminCurrentStore(request);
-		model.addAttribute("product", productService.getNewProduct(store));
+		Product product = productService.getNewProduct(store);
+		model.addAttribute("product", product);
 		return "product-edit";
 	}
 
