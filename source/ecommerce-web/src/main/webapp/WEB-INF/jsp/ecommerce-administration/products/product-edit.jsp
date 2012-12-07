@@ -4,9 +4,12 @@
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<portlet:actionURL var="saveProductAction" name="save-product"/>
+
 <div>
-	<form:form action="" method="post" modelAttribute="product">
-	    <div id="ecommerce-admin-product-tab" class="easyui-tabs">  
+	<form:form action="${saveProductAction}" method="post" modelAttribute="product" id="ecommerce-admin-product-save-form">
+	    <div id="ecommerce-admin-product-tab">  
 	        <div title='<spring:message code="Descriptions"/>'>  
 	            <tiles:insertDefinition name="product-edit-description" />
 	        </div>  
@@ -17,10 +20,29 @@
 	            Prices
 	        </div>  
 	    </div> 
+	    <div id="ecommerce-admin-product-tab-tools">
+			<a href="#" id="product-save"><spring:message code="Save"/></a>
+		</div>
     </form:form> 
 </div>
 
 <script>
+$(function(){
+	$('#ecommerce-admin-product-tab').tabs({
+		tools: '#ecommerce-admin-product-tab-tools'
+	});
+	
+	var $productSaveBtn = $('#product-save').linkbutton({
+		iconCls: 'icon-save',
+	    plain: true
+	});
+	
+	$productSaveBtn.click(function(){
+		if (!($productSaveBtn.linkbutton('options').disabled)) {
+			$('#ecommerce-admin-product-save-form').submit();
+		}
+	});
+});
 </script>
 
 

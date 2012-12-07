@@ -4,11 +4,8 @@
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 
 <portlet:resourceURL var="getProductsForPageResource" id="getProductsForPage"/>
-<portlet:renderURL var="addProductView">
-	<portlet:param name="view" value="add-product-view" />
-</portlet:renderURL>
-
-<portlet:actionURL var="addProductAction" name="addProduct"></portlet:actionURL>
+<portlet:actionURL var="addProductAction" name="add-product"/>
+<portlet:actionURL var="editProductAction" name="edit-product"/>
 
 <div>
 	<div id="ecommerce-admin-products-toolbar">
@@ -77,13 +74,16 @@ $(function() {
 	
 	$productAddBtn.click(function(){
 		if (!($productAddBtn.linkbutton('options').disabled)) {
-			window.location="${addProductView}";
+			var actionUrl = "${addProductAction}";
+			$productAddBtn.posthref(actionUrl, {});
 		}
 	});
 	
 	$productEditBtn.click(function(){
 		if (!($productEditBtn.linkbutton('options').disabled)) {
-			console.log("Edit");
+			var $row = $dataGrid.datagrid('getSelected');
+			var actionUrl = "${editProductAction}";
+			$productEditBtn.posthref(actionUrl, {productId: $row.id});
 		}
 	});
 	

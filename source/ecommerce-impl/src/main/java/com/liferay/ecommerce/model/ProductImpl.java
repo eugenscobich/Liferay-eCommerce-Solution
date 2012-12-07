@@ -13,7 +13,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity(name = "Product")
 @Table(name = "product")
@@ -26,7 +25,7 @@ public class ProductImpl extends BaseModelImpl implements Product {
 
 	@OneToMany(cascade = CascadeType.ALL, targetEntity = ProductDescriptionImpl.class)
 	@JoinColumn(name = "product_id")
-	private Set<ProductDescription> productDescriptions;
+	private List<ProductDescription> productDescriptions;
 
 	@OneToOne(cascade = CascadeType.ALL, targetEntity = ProductDetailsImpl.class)
 	@JoinColumn(name = "product_details_id")
@@ -56,16 +55,13 @@ public class ProductImpl extends BaseModelImpl implements Product {
 	@JoinTable(name = "store_to_product", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
 	private Set<Store> stores;
 
-	@Transient
-	private ProductDescription productDescription;
-
 	@Override
-	public Set<ProductDescription> getProductDescriptions() {
+	public List<ProductDescription> getProductDescriptions() {
 		return productDescriptions;
 	}
 
 	@Override
-	public void setProductDescriptions(Set<ProductDescription> productDescriptions) {
+	public void setProductDescriptions(List<ProductDescription> productDescriptions) {
 		this.productDescriptions = productDescriptions;
 	}
 
@@ -137,16 +133,6 @@ public class ProductImpl extends BaseModelImpl implements Product {
 	@Override
 	public void setStores(Set<Store> stores) {
 		this.stores = stores;
-	}
-
-	@Override
-	public ProductDescription getProductDescription() {
-		return productDescription;
-	}
-
-	@Override
-	public void setProductDescription(ProductDescription productDescription) {
-		this.productDescription = productDescription;
 	}
 
 }

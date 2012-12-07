@@ -14,4 +14,8 @@ public interface ProductService {
 
 	Product getNewProduct(Store store);
 
+	Product get(Long productId);
+
+	Product getForEdit(Long productId);
+
 }

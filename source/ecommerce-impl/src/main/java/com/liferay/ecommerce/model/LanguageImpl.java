@@ -16,13 +16,18 @@ import javax.persistence.Table;
 @Table(name = "language")
 @NamedQueries({
 		@NamedQuery(name = "Language.getLanguageByCode", query = "SELECT l FROM Language l INNER JOIN l.stores s WHERE s.id = :storeId and l.code = :languageCode"),
-		@NamedQuery(name = "Language.getLanguageByCodes", query = "SELECT l FROM Language l INNER JOIN l.stores s WHERE s.id = :storeId and l.code IN (:languageCodes)") })
+		@NamedQuery(name = "Language.getLanguageByCodes", query = "SELECT l FROM Language l INNER JOIN l.stores s WHERE s.id = :storeId and l.code IN (:languageCodes)"),
+		@NamedQuery(name = "Language.getDefaultLanguage", query = "SELECT l FROM Language l INNER JOIN l.stores s WHERE s.id = :storeId and l.isDefault = 1"),
+		@NamedQuery(name = "Language.getAvailableLanguages", query = "SELECT l FROM Language l INNER JOIN l.stores s WHERE s.id = :storeId ORDER BY l.isDefault DESC") })
 public class LanguageImpl extends BaseModelImpl implements Language {
 
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "code")
 	private String code;
+
+	@Column(name = "is_default")
+	private Boolean isDefault;
 
 	@ManyToMany(targetEntity = StoreImpl.class)
 	@JoinTable(name = "store_to_language", joinColumns = { @JoinColumn(name = "language_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
@@ -36,6 +41,16 @@ public class LanguageImpl extends BaseModelImpl implements Language {
 	@Override
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	@Override
+	public Boolean getIsDefault() {
+		return isDefault;
+	}
+
+	@Override
+	public void setIsDefault(Boolean isDefault) {
+		this.isDefault = isDefault;
 	}
 
 	@Override

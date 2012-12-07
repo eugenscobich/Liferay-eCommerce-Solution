@@ -1,7 +1,5 @@
 package com.liferay.ecommerce.controller.portlet.administration;
 
-import java.util.List;
-
 import javax.portlet.PortletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +11,10 @@ import com.liferay.ecommerce.service.store.StoreService;
 import com.liferay.ecommerce.util.WebUtil;
 
 public class BaseAdminController extends BaseController {
+	//private static Logger LOG = Logger.getLogger(BaseAdminController.class);
 
 	@Autowired
 	protected StoreService storeService;
-
-	@ModelAttribute("stores")
-	public List<Store> getStores() {
-		return storeService.getAll();
-	}
 
 	@ModelAttribute("currentStore")
 	public Store getCurrentStore(PortletRequest request) {

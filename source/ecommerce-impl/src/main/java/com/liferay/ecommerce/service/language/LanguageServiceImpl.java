@@ -10,6 +10,7 @@ import com.liferay.ecommerce.dao.language.LanguageDataAccess;
 import com.liferay.ecommerce.model.Language;
 import com.liferay.ecommerce.model.LanguageImpl;
 import com.liferay.ecommerce.model.Store;
+import com.liferay.ecommerce.util.ServiceUtil;
 
 @Service
 public class LanguageServiceImpl implements LanguageService {
@@ -20,7 +21,8 @@ public class LanguageServiceImpl implements LanguageService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Language> getAvailableLanguages(Store store) {
-		throw new IllegalStateException("Not implemented method");
+		ServiceUtil.validateStore(store);
+		return languageDataAccess.getAvailableLanguages(store.getId());
 	}
 
 	@Override
@@ -55,12 +57,20 @@ public class LanguageServiceImpl implements LanguageService {
 
 	@Override
 	public List<Language> getLanguagesByCodes(Store store, List<String> languageCodes) {
+		ServiceUtil.validateStore(store);
 		return languageDataAccess.getLanguagesByCodes(store.getId(), languageCodes);
 	}
 
 	@Override
 	public void remove(Language language) {
 		languageDataAccess.remove(language);
+	}
+
+	@Override
+	public Language getDefaultLanguage(Store store) {
+		ServiceUtil.validateStore(store);
+		Language language = languageDataAccess.getDefaultLanguage(store.getId());
+		return language;
 	}
 
 }

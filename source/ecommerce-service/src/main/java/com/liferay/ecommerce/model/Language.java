@@ -12,4 +12,9 @@ public interface Language extends BaseModel {
 
 	void setStores(Set<Store> stores);
 
+	Boolean getIsDefault();
+
+	void setIsDefault(Boolean isDefault);
+
 }
+

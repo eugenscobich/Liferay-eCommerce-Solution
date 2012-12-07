@@ -5,9 +5,9 @@ import java.util.Set;
 
 public interface Product extends BaseModel {
 
-	Set<ProductDescription> getProductDescriptions();
+	List<ProductDescription> getProductDescriptions();
 
-	void setProductDescriptions(Set<ProductDescription> productDescriptions);
+	void setProductDescriptions(List<ProductDescription> productDescriptions);
 
 	ProductDetails getProductDetails();
 
@@ -36,9 +36,5 @@ public interface Product extends BaseModel {
 	Set<Store> getStores();
 
 	void setStores(Set<Store> stores);
-
-	ProductDescription getProductDescription();
-
-	void setProductDescription(ProductDescription productDescription);
 
 }

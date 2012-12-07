@@ -11,4 +11,8 @@ public interface LanguageDataAccess extends BaseDataAccess<Language> {
 
 	List<Language> getLanguagesByCodes(Long storeId, List<String> languageCodes);
 
+	Language getDefaultLanguage(Long storeId);
+
+	List<Language> getAvailableLanguages(Long storeId);
+
 }

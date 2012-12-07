@@ -6,7 +6,7 @@
 <div>
     <div id="ecommerce-admin-product-description-tab" >  
     	<c:forEach items="${product.productDescriptions}" var="productDescription" varStatus="i">
-    		<div title='${productDescription.language.code}'>
+    		<div title='<spring:message code="language.${productDescription.language.code}" />'>
 	    		<ul class="title-value-pair">
 					<li class="w100px">
 						<form:label path="productDescriptions[${i.index}].isDefault" for="productDescriptions${i.index}.isDefault1"><spring:message code="Default" />:</form:label>
@@ -17,28 +17,42 @@
 						cssErrorClass="field-has-errors" />
 					</li>
 				</ul>
-				<ul class="title-value-pair">
-					<li class="w100px">
-						<form:label path="productDescriptions[${i.index}].description"><spring:message code="Description" />:</form:label>
-					</li>
-					<li>
-						<form:textarea path="productDescriptions[${i.index}].description"/>
-					</li>
-				</ul>
-    			
+				<div class="m10">
+					<form:textarea path="productDescriptions[${i.index}].description" cssClass="ckeditor"/>
+				</div>
         	</div>
     	</c:forEach>
-    	<div id="ecommerce-admin-product-description-tab-tools">
-			<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-add"><spring:message code="Add"/></a>
-		</div>
-    </div>  
+    </div>
+    <!-- 
+	<div id="ecommerce-admin-product-description-tab-tools">
+		<a href="#" id="language-add"><spring:message code="Add"/></a>
+	</div>
+	 -->
 </div>
 
 <script>
 $(function(){
 	$('#ecommerce-admin-product-description-tab').tabs({
-		tools: '#ecommerce-admin-product-description-tab-tools'
+		//tools: '#ecommerce-admin-product-description-tab-tools'
 	});
+	
+	var $languageAddBtn = $('#language-add').linkbutton({
+		iconCls: 'icon-add',
+	    plain: true
+	});
+	
+	$languageAddBtn.click(function(){
+		if (!($languageAddBtn.linkbutton('options').disabled)) {
+		
+			$('#ecommerce-admin-product-description-dialog #select-language-cc').combobox({  
+			    url:'combobox_data.json',  
+			    valueField:'id',  
+			    textField:'text'  
+			}); 
+			
+		}
+	});
+	
 	var $productDescriptionIsDefaultCheckBoxes = $('.product-description-is-default-selector');
 	$productDescriptionIsDefaultCheckBoxes.change(function(){
 		var $productDescriptionIsDefaultCheckBox = $(this);

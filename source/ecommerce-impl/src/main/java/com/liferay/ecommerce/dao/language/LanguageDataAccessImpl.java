@@ -29,4 +29,18 @@ public class LanguageDataAccessImpl extends BaseDataAccessImpl<LanguageImpl, Lan
 		return query.getResultList();
 	}
 
+	@Override
+	public Language getDefaultLanguage(Long storeId) {
+		TypedQuery<Language> query = entityManager.createNamedQuery("Language.getDefaultLanguage", Language.class);
+		query.setParameter("storeId", storeId);
+		return getSingleResult(query.getResultList());
+	}
+
+	@Override
+	public List<Language> getAvailableLanguages(Long storeId) {
+		TypedQuery<Language> query = entityManager.createNamedQuery("Language.getAvailableLanguages", Language.class);
+		query.setParameter("storeId", storeId);
+		return query.getResultList();
+	}
+
 }

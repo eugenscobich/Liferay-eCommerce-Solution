@@ -18,4 +18,6 @@ public interface LanguageService {
 	List<Language> getLanguagesByCodes(Store store, List<String> languageCodes);
 
 	void remove(Language language);
+
+	Language getDefaultLanguage(Store store);
 }

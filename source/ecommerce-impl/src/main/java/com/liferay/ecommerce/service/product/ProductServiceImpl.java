@@ -1,5 +1,6 @@
 package com.liferay.ecommerce.service.product;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -58,10 +59,15 @@ public class ProductServiceImpl implements ProductService {
 
 		// Prepare product description
 		List<Language> languages = languageService.getAvailableLanguages(store);
-		Set<ProductDescription> productDescriptions = new HashSet<ProductDescription>();
+		List<ProductDescription> productDescriptions = new ArrayList<ProductDescription>();
 		for (Language language : languages) {
 			ProductDescription productDescription = new ProductDescriptionImpl();
 			productDescription.setLanguage(language);
+			if (language.getIsDefault()) {
+				productDescription.setIsDefault(true);
+			} else {
+				productDescription.setIsDefault(false);
+			}
 			productDescriptions.add(productDescription);
 		}
 		product.setProductDescriptions(productDescriptions);
@@ -80,6 +86,24 @@ public class ProductServiceImpl implements ProductService {
 		}
 		product.setPrices(prices);
 
+		return product;
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Product get(Long productId) {
+		return productDataAccess.find(productId);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Product getForEdit(Long productId) {
+		Product product = productDataAccess.find(productId);
+		product.getProductDescriptions().size();
+		product.getCatalogs().size();
+		product.getDigitalDownloads().size();
+		product.getMedias().size();
+		product.getPrices().size();
 		return product;
 	}
 }

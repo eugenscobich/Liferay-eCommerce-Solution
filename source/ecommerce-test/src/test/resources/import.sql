@@ -14,8 +14,8 @@ SET DATABASE REFERENTIAL INTEGRITY TRUE;
 
 INSERT INTO ecommerce_store (id, name) VALUES (1, 'eugen');
 
-INSERT INTO ecommerce_language (id, code) VALUES (1, 'en');
-INSERT INTO ecommerce_language (id, code) VALUES (2, 'ro');
+INSERT INTO ecommerce_language (id, code, is_default) VALUES (1, 'en', true);
+INSERT INTO ecommerce_language (id, code, is_default) VALUES (2, 'ro', false);
 INSERT INTO ecommerce_store_to_language (language_id, store_id) VALUES (1, 1);
 INSERT INTO ecommerce_store_to_language (language_id, store_id) VALUES (2, 1);
 

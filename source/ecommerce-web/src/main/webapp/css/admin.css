@@ -55,6 +55,10 @@ ul.title-value-pair li:FIRST-CHILD {
 	width: 100px !important;
 }
 
+.m10{
+	margin: 10px !important;
+}
+
 .ecommerce-admin-content-tab {
 	width: 100%;
 }
