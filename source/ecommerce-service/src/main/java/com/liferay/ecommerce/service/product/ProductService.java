@@ -18,4 +18,6 @@ public interface ProductService {
 
 	Product getForEdit(Long productId);
 
+	void save(Product product);
+
 }

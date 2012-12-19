@@ -63,6 +63,10 @@ ul.title-value-pair li:FIRST-CHILD {
 	width: 100%;
 }
 
-.field-has-errors {
-	border: 1px solid red;
+.field-has-error {
+	border: 1px solid red !important;
+}
+
+.field-error {
+	color: red;
 }

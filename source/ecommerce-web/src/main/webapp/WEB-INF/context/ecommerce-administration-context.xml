@@ -10,12 +10,24 @@
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
-	<mvc:annotation-driven/>
+	<bean id="validatorJSR303" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+	<mvc:annotation-driven conversion-service="conversionService"/>
+
+    <bean id="conversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
 	
 	<bean id="annotationMethodHandlerAdapter" class="org.springframework.web.portlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="customModelAndViewResolver">
 			<bean class="com.liferay.ecommerce.util.json.JsonModelAndViewResolver"/>
 		</property>
+		<property name="webBindingInitializer">
+	        <bean id="configurableWebBindingInitializer" class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+	            <property name="validator">
+	                <ref bean="validatorJSR303"/>
+	            </property>
+	        </bean>
+	    </property>
 	</bean>
 	
 	<context:component-scan base-package="com.liferay.ecommerce.controller.portlet.administration" />

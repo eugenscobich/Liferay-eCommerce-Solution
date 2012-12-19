@@ -1,7 +1,6 @@
 package com.liferay.ecommerce.model;
 
 import java.util.Date;
-import java.util.Set;
 
 import com.liferay.ecommerce.model.type.ProductStatus;
 import com.liferay.ecommerce.model.type.ProductType;
@@ -32,9 +31,9 @@ public interface ProductDetails {
 
 	void setInvisible(boolean invisible);
 
-	Set<Manufacturer> getManufacturers();
+	Manufacturer getManufacturer();
 
-	void setManufacturers(Set<Manufacturer> manufacturers);
+	void setManufacturer(Manufacturer manufacturer);
 
 	String getModel();
 

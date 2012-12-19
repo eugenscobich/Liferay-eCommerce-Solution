@@ -13,6 +13,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 @Entity(name = "Product")
 @Table(name = "product")
@@ -23,10 +24,12 @@ public class ProductImpl extends BaseModelImpl implements Product {
 
 	private static final long serialVersionUID = 1L;
 
+	@Valid
 	@OneToMany(cascade = CascadeType.ALL, targetEntity = ProductDescriptionImpl.class)
 	@JoinColumn(name = "product_id")
 	private List<ProductDescription> productDescriptions;
 
+	@Valid
 	@OneToOne(cascade = CascadeType.ALL, targetEntity = ProductDetailsImpl.class)
 	@JoinColumn(name = "product_details_id")
 	private ProductDetails productDetails;

@@ -23,6 +23,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.6.6</slf4j.version>
 		<hibernate.version>4.1.7.Final</hibernate.version>
+		<org.hibernate.validator.version>4.3.0.Final</org.hibernate.validator.version>
 		<commons.version>3.1</commons.version>
 		<jstl.version>1.2</jstl.version>
 		<javax.servlet.version>2.5</javax.servlet.version>
@@ -37,6 +38,7 @@
 		<net.sf.json.lib.version>2.4</net.sf.json.lib.version>
 		<com.fasterxml.jackson.version>2.1.0</com.fasterxml.jackson.version>
 		<javax.mail.version>1.4.5</javax.mail.version>
+		<javax.validation.version>1.0.0.GA</javax.validation.version>
 	</properties>
 
 	<modules>
@@ -145,12 +147,12 @@
 			<dependency>
 				<groupId>javax.validation</groupId>
 				<artifactId>validation-api</artifactId>
-				<version>1.0.0.GA</version>
+				<version>${javax.validation.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
-				<version>4.3.0.Final</version>
+				<version>${org.hibernate.validator.version}</version>
 			</dependency>
 
 

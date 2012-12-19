@@ -1,17 +1,21 @@
 package com.liferay.ecommerce.model;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Range;
 
 import com.liferay.ecommerce.model.type.ProductStatus;
 import com.liferay.ecommerce.model.type.ProductType;
@@ -22,17 +26,21 @@ public class ProductDetailsImpl extends BaseModelImpl implements ProductDetails 
 
 	private static final long serialVersionUID = 1L;
 
+	@NotNull
 	@Column(name = "product_status")
 	@Enumerated(EnumType.STRING)
 	private ProductStatus productStatus;
 
+	@Size(min = 3, max = 100)
 	@Column(name = "sku")
 	private String sku;
 
+	@NotNull
 	@Column(name = "product_type")
 	@Enumerated(EnumType.STRING)
 	private ProductType productType;
 
+	@NotNull
 	@Column(name = "available_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date availableDate;
@@ -44,22 +52,27 @@ public class ProductDetailsImpl extends BaseModelImpl implements ProductDetails 
 	@Column(name = "invisible")
 	private boolean invisible;
 
-	@OneToMany(targetEntity = ManufacturerImpl.class)
-	@JoinColumn(name = "product_details_id")
-	private Set<Manufacturer> manufacturers;
+	@ManyToOne(targetEntity = ManufacturerImpl.class)
+	@JoinColumn(name = "manufacturer_id")
+	private Manufacturer manufacturer;
 
+	@Size(max = 100)
 	@Column(name = "model")
 	private String model;
 
+	@Max(Long.MAX_VALUE)
 	@Column(name = "quantity")
 	private Long quantity;
 
+	@Max(Long.MAX_VALUE)
 	@Column(name = "weight")
 	private Double weight;
 
+	@Range(min = 0, max = 5)
 	@Column(name = "rating")
 	private Float rating;
 
+	@NotNull
 	@Column(name = "createDate")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createDate;
@@ -129,13 +142,13 @@ public class ProductDetailsImpl extends BaseModelImpl implements ProductDetails 
 	}
 
 	@Override
-	public Set<Manufacturer> getManufacturers() {
-		return manufacturers;
+	public Manufacturer getManufacturer() {
+		return manufacturer;
 	}
 
 	@Override
-	public void setManufacturers(Set<Manufacturer> manufacturers) {
-		this.manufacturers = manufacturers;
+	public void setManufacturer(Manufacturer manufacturer) {
+		this.manufacturer = manufacturer;
 	}
 
 	@Override

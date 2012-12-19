@@ -1,6 +1,8 @@
 package com.liferay.ecommerce.service.product;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -74,8 +76,9 @@ public class ProductServiceImpl implements ProductService {
 
 		// Prepare product details
 		ProductDetails productDetails = new ProductDetailsImpl();
+		productDetails.setAvailableDate(new Date());
+		productDetails.setCreateDate(new Date());
 		product.setProductDetails(productDetails);
-
 		// Prepare product prices
 		List<Currency> currencies = currencyService.getAvailableCurrency(store);
 		Set<Price> prices = new HashSet<Price>();
@@ -85,7 +88,7 @@ public class ProductServiceImpl implements ProductService {
 			prices.add(price);
 		}
 		product.setPrices(prices);
-
+		product.setStores(new HashSet<Store>(Arrays.asList(store)));
 		return product;
 	}
 
@@ -105,5 +108,16 @@ public class ProductServiceImpl implements ProductService {
 		product.getMedias().size();
 		product.getPrices().size();
 		return product;
+	}
+
+	@Override
+	@Transactional
+	public void save(Product product) {
+		product.getProductDetails().setLastModifiedDate(new Date());
+		if (product.getId() == null) {
+			productDataAccess.persist(product);
+		} else {
+			productDataAccess.merge(product);
+		}
 	}
 }

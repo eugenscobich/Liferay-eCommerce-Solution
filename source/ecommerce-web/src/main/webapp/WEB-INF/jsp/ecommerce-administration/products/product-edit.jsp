@@ -9,12 +9,13 @@
 
 <div>
 	<form:form action="${saveProductAction}" method="post" modelAttribute="product" id="ecommerce-admin-product-save-form">
+		<input type="hidden" value="${product.id}" name="productId">
 	    <div id="ecommerce-admin-product-tab">  
 	        <div title='<spring:message code="Descriptions"/>'>  
 	            <tiles:insertDefinition name="product-edit-description" />
 	        </div>  
 	        <div title='<spring:message code="Details"/>'>  
-	            Details
+	            <tiles:insertDefinition name="product-edit-details" />
 	        </div>  
 	        <div title='<spring:message code="Prices"/>'>  
 	            Prices

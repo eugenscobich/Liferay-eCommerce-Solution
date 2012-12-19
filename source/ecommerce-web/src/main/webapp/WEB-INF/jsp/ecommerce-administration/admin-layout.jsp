@@ -15,4 +15,18 @@
 	</div>
 </div>
 
-
+<script>
+$(function() {
+	$.fn.datebox.defaults.formatter = function(date){
+		var y = date.getFullYear();
+		y = (y + "").length == 1 ? ("0" + y) : y;
+		var m = date.getMonth()+1;
+		m = (m + "").length == 1 ? ("0" + m) : m;
+		var d = date.getDate();
+		d = (d + "").length == 1 ? ("0" + d) : d;
+		console.log(m+'/'+d+'/'+y);
+		return m+'/'+d+'/'+y;
+	}
+	$.fn.datebox.defaults.editable = false;
+});
+</script>

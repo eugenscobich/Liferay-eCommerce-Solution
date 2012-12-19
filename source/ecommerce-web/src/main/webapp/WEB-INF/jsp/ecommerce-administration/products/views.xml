@@ -15,5 +15,6 @@
 	</definition>
 	
 	<definition name="product-edit-description" template="/WEB-INF/jsp/ecommerce-administration/products/product-edit-description.jsp" />
+	<definition name="product-edit-details" template="/WEB-INF/jsp/ecommerce-administration/products/product-edit-details.jsp" />
 	
 </tiles-definitions>

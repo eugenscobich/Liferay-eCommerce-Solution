@@ -14,10 +14,22 @@
 					<li>
 						<form:checkbox path="productDescriptions[${i.index}].isDefault" 
 						value="true" cssClass="product-description-is-default-selector" 
-						cssErrorClass="field-has-errors" />
+						cssErrorClass="field-has-error" />
+						<form:errors path="productDescriptions[${i.index}].isDefault" cssClass="field-error"/>
+					</li>
+				</ul>
+				<ul class="title-value-pair">
+					<li class="w100px">
+						<form:label path="productDescriptions[${i.index}].name"><spring:message code="Name"/>:</form:label>
+					</li>
+					<li>
+						<form:input path="productDescriptions[${i.index}].name" cssErrorClass="field-has-error"/>
+						<form:errors path="productDescriptions[${i.index}].name" cssClass="field-error"/>
 					</li>
 				</ul>
 				<div class="m10">
+					<form:label path="productDescriptions[${i.index}].description"><spring:message code="Description"/>:</form:label>
+					<form:errors path="productDescriptions[${i.index}].description" cssClass="field-error"/>
 					<form:textarea path="productDescriptions[${i.index}].description" cssClass="ckeditor"/>
 				</div>
         	</div>

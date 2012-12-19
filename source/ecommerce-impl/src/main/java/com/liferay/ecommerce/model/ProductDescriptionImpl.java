@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Type;
 
@@ -18,9 +19,11 @@ public class ProductDescriptionImpl extends BaseModelImpl implements ProductDesc
 	@JoinColumn(name = "language_id")
 	private Language language;
 
+	@Size(min = 4, max = 100)
 	@Column(name = "name")
 	private String name;
 
+	@Size(min = 4)
 	@Column(name = "description")
 	@Type(type = "text")
 	private String description;

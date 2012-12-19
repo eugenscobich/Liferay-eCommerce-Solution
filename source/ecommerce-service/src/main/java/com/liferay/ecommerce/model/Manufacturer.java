@@ -1,6 +1,8 @@
 package com.liferay.ecommerce.model;
 
-public interface Manufacturer {
+import java.util.Set;
+
+public interface Manufacturer extends BaseModel {
 
 	String getName();
 
@@ -13,5 +15,9 @@ public interface Manufacturer {
 	Media getMedia();
 
 	void setMedia(Media media);
+
+	Set<Store> getStores();
+
+	void setStores(Set<Store> stores);
 
 }
