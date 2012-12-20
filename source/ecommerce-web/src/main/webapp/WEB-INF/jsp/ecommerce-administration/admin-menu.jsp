@@ -17,6 +17,9 @@
 <portlet:renderURL var="productsView">
 	<portlet:param name="view" value="products-view" />
 </portlet:renderURL> 
+<portlet:renderURL var="catalogsView">
+	<portlet:param name="view" value="catalogs-view" />
+</portlet:renderURL> 
  
 <c:set var="accordionIndex" value='${fn:split(menuIndex, ".")[0]}'/>
 <div class="easyui-accordion">
@@ -41,6 +44,13 @@
 		<ul>
 			<li <c:if test="${menuIndex == 3.1}">class="admin-menu-selected"</c:if>>
 				<a href="${productsView}" ><spring:message code="Products" /></a>
+			</li>
+		</ul>
+	</div>
+	<div title="<spring:message code="Catalogs"/>" data-options="iconCls:'icon-search'" <c:if test="${accordionIndex == 4}">selected="true"</c:if>>
+		<ul>
+			<li <c:if test="${menuIndex == 4.1}">class="admin-menu-selected"</c:if>>
+				<a href="${catalogsView}" ><spring:message code="Catalogs" /></a>
 			</li>
 		</ul>
 	</div>

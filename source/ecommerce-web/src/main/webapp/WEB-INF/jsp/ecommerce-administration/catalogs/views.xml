@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="catalogs-view" extends="admin-layout">
+		<put-attribute name="admin-content" value="/WEB-INF/jsp/ecommerce-administration/catalogs/catalogs-view.jsp"/>
+		<put-attribute name="menuIndex" value="4.1" type="string"/>
+	</definition>
+	
+	<definition name="catalog-edit" extends="admin-layout">
+		<put-attribute name="admin-content" value="/WEB-INF/jsp/ecommerce-administration/catalogs/catalog-edit.jsp"/>
+		<put-attribute name="menuIndex" value="4.1" type="string"/>
+	</definition>
+	
+	<definition name="catalog-edit-description" template="/WEB-INF/jsp/ecommerce-administration/catalogs/catalog-edit-description.jsp" />
+	<definition name="catalog-edit-details" template="/WEB-INF/jsp/ecommerce-administration/catalogs/catalog-edit-details.jsp" />
+	
+</tiles-definitions>

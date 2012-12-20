@@ -19,13 +19,13 @@ import javax.validation.Valid;
 @Table(name = "product")
 @NamedQueries({
 		@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p INNER JOIN p.stores s LEFT JOIN FETCH p.productDescriptions pdcpr WHERE s.id = :storeId and pdcpr.language.id = :languageId"),
-		@NamedQuery(name = "Product.totalNumber", query = "SELECT COUNT(*) FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId") })
+		@NamedQuery(name = "Product.totalNumber", query = "SELECT COUNT(p.id) FROM Product p INNER JOIN p.stores s WHERE s.id = :storeId") })
 public class ProductImpl extends BaseModelImpl implements Product {
 
 	private static final long serialVersionUID = 1L;
 
 	@Valid
-	@OneToMany(cascade = CascadeType.ALL, targetEntity = ProductDescriptionImpl.class)
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = ProductDescriptionImpl.class, orphanRemoval = true)
 	@JoinColumn(name = "product_id")
 	private List<ProductDescription> productDescriptions;
 

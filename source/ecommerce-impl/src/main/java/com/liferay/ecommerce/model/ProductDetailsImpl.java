@@ -56,7 +56,7 @@ public class ProductDetailsImpl extends BaseModelImpl implements ProductDetails 
 	@JoinColumn(name = "manufacturer_id")
 	private Manufacturer manufacturer;
 
-	@Size(max = 100)
+	@Size(min = 0, max = 100)
 	@Column(name = "model")
 	private String model;
 

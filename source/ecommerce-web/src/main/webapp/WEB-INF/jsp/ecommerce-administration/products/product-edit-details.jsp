@@ -4,7 +4,7 @@
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div>
-    <div id="ecommerce-admin-product-details-tab" >  
+    <div id="ecommerce-admin-product-details-tab" >
    		<ul class="title-value-pair">
 			<li class="w100px">
 				<form:label path="productDetails.productStatus"><spring:message code="Product-status" />:</form:label>
@@ -122,7 +122,19 @@
 
 <script>
 $(function() {
-      
+	$(".easyui-datebox").datebox({
+		formatter: function(date){
+			var y = date.getFullYear();
+			y = (y + "").length == 1 ? ("0" + y) : y;
+			var m = date.getMonth()+1;
+			m = (m + "").length == 1 ? ("0" + m) : m;
+			var d = date.getDate();
+			d = (d + "").length == 1 ? ("0" + d) : d;
+			console.log(m+'/'+d+'/'+y);
+			return m+'/'+d+'/'+y;
+		},
+		editable: false
+	});
 });
 </script>
 

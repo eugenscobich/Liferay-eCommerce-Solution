@@ -20,4 +20,6 @@ public interface ProductService {
 
 	void save(Product product);
 
+	void remove(List<Long> productIds);
+
 }

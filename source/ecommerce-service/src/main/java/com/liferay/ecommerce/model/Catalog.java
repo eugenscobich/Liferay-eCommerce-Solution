@@ -2,7 +2,7 @@ package com.liferay.ecommerce.model;
 
 import java.util.Set;
 
-public interface Catalog {
+public interface Catalog extends BaseModel {
 
 	Set<CatalogDescription> getCatalogDescriptions();
 

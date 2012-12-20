@@ -30,13 +30,13 @@ import org.springframework.web.portlet.bind.annotation.ActionMapping;
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 
+import com.liferay.ecommerce.model.Catalog;
 import com.liferay.ecommerce.model.Language;
 import com.liferay.ecommerce.model.Manufacturer;
-import com.liferay.ecommerce.model.Product;
 import com.liferay.ecommerce.model.Store;
+import com.liferay.ecommerce.service.catalog.CatalogService;
 import com.liferay.ecommerce.service.language.LanguageService;
 import com.liferay.ecommerce.service.manufacturer.ManufacturerService;
-import com.liferay.ecommerce.service.product.ProductService;
 import com.liferay.ecommerce.service.store.StoreService;
 import com.liferay.ecommerce.util.JsonUtil;
 import com.liferay.ecommerce.util.WebUtil;
@@ -45,9 +45,9 @@ import com.liferay.ecommerce.util.formater.DateFormaterUtil;
 
 @Controller
 @RequestMapping(value = "VIEW")
-public class ProductsController extends BaseAdminController {
+public class CatalogsController extends BaseAdminController {
 
-	private static Logger LOG = Logger.getLogger(ProductsController.class);
+	private static Logger LOG = Logger.getLogger(CatalogsController.class);
 
 	@Autowired
 	private MessageSource messageSource;
@@ -56,7 +56,7 @@ public class ProductsController extends BaseAdminController {
 	private StoreService storeService;
 
 	@Autowired
-	private ProductService productService;
+	private CatalogService catalogService;
 
 	@Autowired
 	private LanguageService languageService;
@@ -76,78 +76,67 @@ public class ProductsController extends BaseAdminController {
 
 	}
 
-	@ModelAttribute("product")
-	public Product getNewProduct(PortletRequest request, @RequestParam(required = false) Long productId) {
-		if (("save-product".equals(request.getParameter("javax.portlet.action"))
-				|| "edit-product".equals(request.getParameter("javax.portlet.action"))) && productId != null) {
-			Product product = productService.getForEdit(productId);
-			return product;
-		} else if (("add-product".equals(request.getParameter("javax.portlet.action")) || "save-product".equals(request
-				.getParameter("javax.portlet.action"))) && productId == null) {
+	@ModelAttribute("catalog")
+	public Catalog getNewCatalog(PortletRequest request, @RequestParam(required = false) Long catalogId) {
+		if (("save-catalog".equals(request.getParameter("javax.portlet.action")) || "edit-catalog".equals(request
+				.getParameter("javax.portlet.action"))) && catalogId != null) {
+			Catalog catalog = catalogService.getForEdit(catalogId);
+			return catalog;
+		} else if (("add-catalog".equals(request.getParameter("javax.portlet.action")) || "save-catalog".equals(request
+				.getParameter("javax.portlet.action"))) && catalogId == null) {
 			Store store = WebUtil.getAdminCurrentStore(request);
-			Product product = productService.getNewProduct(store);
-			return product;
+			Catalog catalog = catalogService.getNewCatalog(store);
+			return catalog;
 		} 
 		return null;
 	}
 
-	@ModelAttribute("manufacturers")
-	public List<Manufacturer> getManufacturers(PortletRequest request) {
-		if ("add-product".equals(request.getParameter("javax.portlet.action"))
-				|| "edit-product".equals(request.getParameter("javax.portlet.action"))
-				|| "save-product".equals(request.getParameter("javax.portlet.action"))) {
-			Store store = WebUtil.getAdminCurrentStore(request);
-			return manufacturerService.getAll(store);
-		}
-		return null;
-	}
-
-	@RenderMapping(params = "view=products-view")
+	@RenderMapping(params = "view=catalogs-view")
 	public String view(RenderRequest request, RenderResponse response) {
-		return "products-view";
+		return "catalogs-view";
 	}
 
-	@ResourceMapping("getProductsForPage")
+	@ResourceMapping("getCatalogsForPage")
 	@ResponseBody
-	public Map<String, Object> getProductsForPage(ResourceRequest request, ResourceResponse resourceResponse, @RequestParam Integer page,
+	public Map<String, Object> getCatalogsForPage(ResourceRequest request, ResourceResponse resourceResponse, @RequestParam Integer page,
 			@RequestParam Integer rows) {
 		Store store = WebUtil.getAdminCurrentStore(request);
 		Language language = languageService.getLanguageByCode(store, request.getLocale().getLanguage());
-		List<Product> products = productService.getProductsForPage(store, page, rows, language);
-		Long total = productService.getNumberOfProducts(store);
-		return JsonUtil.getPaginationData(products, total);
+		List<Catalog> catalogs = catalogService.getCatalogsForPage(store, page, rows, language);
+		Long total = catalogService.getNumberOfCatalogs(store);
+		return JsonUtil.getPaginationData(catalogs, total);
 	}
 
-	@RenderMapping(params = "view=edit-product-view")
-	public String viewEditProduct(RenderRequest request, RenderResponse response) {
-		return "product-edit";
+	@RenderMapping(params = "view=edit-catalog-view")
+	public String viewEditCatalog(RenderRequest request, RenderResponse response) {
+		return "catalog-edit";
 	}
 
-	@ActionMapping("add-product")
-	public void addProduct(ActionRequest request, ActionResponse response, Model model) {
-		LOG.debug("add new product");
-		response.setRenderParameter("view", "edit-product-view");
+	@ActionMapping("add-catalog")
+	public void addCatalog(ActionRequest request, ActionResponse response, Model model) {
+		LOG.debug("add new catalog");
+		response.setRenderParameter("view", "edit-catalog-view");
 	}
 
-	@ActionMapping("edit-product")
-	public void editProduct(ActionRequest request, ActionResponse response, Model model) {
-		response.setRenderParameter("view", "edit-product-view");
+	@ActionMapping("edit-catalog")
+	public void editCatalog(ActionRequest request, ActionResponse response, Model model) {
+		response.setRenderParameter("view", "edit-catalog-view");
 	}
 
-	@ActionMapping("remove-products")
-	public void removeProducts(ActionRequest request, ActionResponse response, Model model, @RequestParam("productIds") String ids) {
-		List<Long> productIds = WebUtil.getIds(ids);
-		productService.remove(productIds);
-		response.setRenderParameter("view", "products-view");
+	@ActionMapping("remove-catalogs")
+	public void removeCatalogs(ActionRequest request, ActionResponse response, Model model, @RequestParam("catalogIds") String ids) {
+		List<Long> catalogIds = WebUtil.getIds(ids);
+		catalogService.remove(catalogIds);
+		response.setRenderParameter("view", "catalogs-view");
 	}
 
-	@ActionMapping("save-product")
-	public void addProduct(ActionRequest request, @ModelAttribute("product") @Valid Product product, BindingResult bindingResult,
+	@ActionMapping("save-catalog")
+	public void addCatalog(ActionRequest request, @ModelAttribute("catalog") @Valid Catalog catalog, BindingResult bindingResult,
 			ActionResponse response, Model model) {
 		if (!bindingResult.hasErrors()) {
-			productService.save(product);
+			catalogService.save(catalog);
 		}
-		response.setRenderParameter("view", "edit-product-view");
+		response.setRenderParameter("view", "edit-catalog-view");
 	}
 
 }

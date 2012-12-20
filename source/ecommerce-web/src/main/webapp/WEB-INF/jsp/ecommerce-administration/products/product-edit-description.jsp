@@ -6,7 +6,15 @@
 <div>
     <div id="ecommerce-admin-product-description-tab" >  
     	<c:forEach items="${product.productDescriptions}" var="productDescription" varStatus="i">
-    		<div title='<spring:message code="language.${productDescription.language.code}" />'>
+    		
+    		<c:set var="productDescriptionTabIconCls" value='iconCls="icon-pencil"' />
+			<spring:bind path="productDescriptions[${i.index}].*">
+				<c:if test="${status.error}">
+					<c:set var="productDescriptionTabIconCls" value='iconCls="icon-no"' /> 
+				</c:if>
+			</spring:bind>
+   	
+    		<div title='<spring:message code="language.${productDescription.language.code}" />' ${productDescriptionTabIconCls}>
 	    		<ul class="title-value-pair">
 					<li class="w100px">
 						<form:label path="productDescriptions[${i.index}].isDefault" for="productDescriptions${i.index}.isDefault1"><spring:message code="Default" />:</form:label>

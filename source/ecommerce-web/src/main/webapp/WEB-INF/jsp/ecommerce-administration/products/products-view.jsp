@@ -6,6 +6,8 @@
 <portlet:resourceURL var="getProductsForPageResource" id="getProductsForPage"/>
 <portlet:actionURL var="addProductAction" name="add-product"/>
 <portlet:actionURL var="editProductAction" name="edit-product"/>
+<portlet:actionURL var="removeProductsAction" name="remove-products"/>
+
 
 <div>
 	<div id="ecommerce-admin-products-toolbar">
@@ -90,7 +92,19 @@ $(function() {
 	$productRemoveBtn.click(function(){
 		if (!($productRemoveBtn.linkbutton('options').disabled)) {
 			var nr =  $dataGrid.datagrid('getSelections').length;
-			console.log("remove: " + nr);
+			var title = '<spring:message code="Delete"/> ' + nr;
+			title += nr <= 1 ? ' <spring:message code="product"/>' : ' <spring:message code="products"/>';
+			var message = '<spring:message code="Are-you-really-want-to-delete"/> ' + nr;
+			message += nr <= 1 ? ' <spring:message code="product"/>' : ' <spring:message code="products"/>';
+			$.messager.confirm(title, message, function(response){
+				if (response){
+					var ids = $.map($dataGrid.datagrid('getSelections'), function(item, index){
+					      return item.id;
+				    });
+					var actionUrl = "${removeProductsAction}";
+					$productEditBtn.posthref(actionUrl, {productIds: ids});
+				};
+			});
 		}
 	});
 

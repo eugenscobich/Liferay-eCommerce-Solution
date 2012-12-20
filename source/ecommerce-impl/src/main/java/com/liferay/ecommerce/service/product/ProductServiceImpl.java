@@ -120,4 +120,16 @@ public class ProductServiceImpl implements ProductService {
 			productDataAccess.merge(product);
 		}
 	}
+
+	@Override
+	@Transactional
+	public void remove(List<Long> productIds) {
+		for (Long id : productIds) {
+			Product product = productDataAccess.find(id);
+			if (product != null) {
+				productDataAccess.remove(product);
+			}
+		}
+
+	}
 }

@@ -28,6 +28,12 @@ INSERT INTO ecommerce_product (id, product_details_id) VALUES (1, 1);
 INSERT INTO ecommerce_product_description (id, description, language_id, name, product_id) VALUES (1, 'Cool product', 1, 'Video Card', 1);
 INSERT INTO ecommerce_product_description (id, description, language_id, name, product_id) VALUES (2, 'Produs Bun', 2, 'Video Cartela', 1);
 
+INSERT INTO ecommerce_catalog (id) VALUES (1);
+INSERT INTO ecommerce_catalog_description (id, description, language_id, name, catalog_id) VALUES (1, 'Cool catalog', 1, 'Video Card Catalog', 1);
+INSERT INTO ecommerce_catalog_description (id, description, language_id, name, catalog_id) VALUES (2, 'Catalog Bun', 2, 'Catalog pentru video cartele', 1);
+
+
+
 INSERT INTO ecommerce_currency (id, code) VALUES (1, 'USD');
 INSERT INTO ecommerce_currency (id, code) VALUES (2, 'MDL');
 INSERT INTO ecommerce_store_to_currency (currency_id, store_id) VALUES (1, 1);

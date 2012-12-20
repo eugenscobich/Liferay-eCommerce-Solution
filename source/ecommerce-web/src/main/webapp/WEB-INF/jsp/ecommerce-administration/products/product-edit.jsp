@@ -10,13 +10,31 @@
 <div>
 	<form:form action="${saveProductAction}" method="post" modelAttribute="product" id="ecommerce-admin-product-save-form">
 		<input type="hidden" value="${product.id}" name="productId">
-	    <div id="ecommerce-admin-product-tab">  
-	        <div title='<spring:message code="Descriptions"/>'>  
+	    <div id="ecommerce-admin-product-tab">
+	    
+	    	<c:set var="productDescriptionsTabIconCls" value='iconCls="icon-pencil"' />
+	    	<c:forEach items="${product.productDescriptions}" var="productDescription" varStatus="i">
+				<spring:bind path="productDescriptions[${i.index}].*">
+					<c:if test="${status.error}">
+						<c:set var="productDescriptionsTabIconCls" value='iconCls="icon-no"' /> 
+					</c:if>
+				</spring:bind>
+	    	</c:forEach>
+			
+			<div title='<spring:message code="Descriptions"/>' ${productDescriptionsTabIconCls}>  
 	            <tiles:insertDefinition name="product-edit-description" />
-	        </div>  
-	        <div title='<spring:message code="Details"/>'>  
+	        </div>
+			
+			<c:set var="productDetailsTabIconCls" value='iconCls="icon-pencil"' />
+	    	<spring:bind path="productDetails.*">
+				<c:if test="${status.error}">
+					<c:set var="productDetailsTabIconCls" value='iconCls="icon-no"' /> 
+				</c:if>
+			</spring:bind>
+   			<div title='<spring:message code="Details"/>' ${productDetailsTabIconCls}>  
 	            <tiles:insertDefinition name="product-edit-details" />
-	        </div>  
+	        </div>
+	
 	        <div title='<spring:message code="Prices"/>'>  
 	            Prices
 	        </div>  
