@@ -2,9 +2,9 @@ package com.liferay.ecommerce.model;
 
 public interface CatalogDescription {
 
-	String getLanguage();
+	Language getLanguage();
 
-	void setLanguage(String locale);
+	void setLanguage(Language locale);
 
 	String getName();
 
@@ -13,5 +13,9 @@ public interface CatalogDescription {
 	String getDescription();
 
 	void setDescription(String description);
+
+	Boolean getIsDefault();
+
+	void setIsDefault(Boolean isDefault);
 
 }

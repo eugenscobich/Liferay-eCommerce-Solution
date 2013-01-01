@@ -22,6 +22,9 @@ public class CurrencyImpl extends BaseModelImpl implements Currency {
 	@Column(name = "code")
 	private String code;
 
+	@Column(name = "is_default")
+	private Boolean isDefault;
+
 	@ManyToMany(targetEntity = StoreImpl.class)
 	@JoinTable(name = "store_to_currency", joinColumns = { @JoinColumn(name = "currency_id") }, inverseJoinColumns = { @JoinColumn(name = "store_id") })
 	private Set<Store> stores = new HashSet<Store>();
@@ -34,6 +37,16 @@ public class CurrencyImpl extends BaseModelImpl implements Currency {
 	@Override
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	@Override
+	public Boolean getIsDefault() {
+		return isDefault;
+	}
+
+	@Override
+	public void setIsDefault(Boolean isDefault) {
+		this.isDefault = isDefault;
 	}
 
 	@Override

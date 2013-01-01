@@ -23,29 +23,30 @@
 
 <script>
 $(function() {
-	var $dataGrid = $('#ecommerce-admin-catalogs-table').datagrid({  
+	var $dataGrid = $('#ecommerce-admin-catalogs-table').treegrid({  
 	    url:'${getCatalogsForPageResource}',  
 	    pagination: true,
 	    rownumbers: true,
 	    fitColumns: true,
-	    idField:'id',  
+	    idField: 'id', 
+	    treeField: 'catalogDescriptions[0].name',
 		onSelect: refreshButtons,
 		onUnselect: refreshButtons,
 		onSelectAll: refreshButtons,
 		onUnselectAll: refreshButtons,
 		singleSelect: false,
 		toolbar: '#ecommerce-admin-catalogs-toolbar',
-	    columns : [ {
-			field : 'id',
+	    columns : [[ {
+			field: 'id',
 			hidden: true
 		}, {
-			field : 'ck',
-			checkbox : true
+			field: 'ck',
+			checkbox: true
 		}, {
-			field : 'catalogDescriptions[0].name',
-			title : '<spring:message code="Name" />',
-			width:100
-		} ]
+			field: 'catalogDescriptions[0].name',
+			title: '<spring:message code="Name" />',
+			width: 100
+		} ]]
 	});  
 	
 	

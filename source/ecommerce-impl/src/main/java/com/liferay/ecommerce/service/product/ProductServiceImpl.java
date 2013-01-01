@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private CurrencyService currencyService;
-	
+
 	@Override
 	@Transactional(readOnly = true)
 	public List<Product> getProductsForPage(Store store, Integer page, Integer rows, Language language) {
@@ -84,6 +84,11 @@ public class ProductServiceImpl implements ProductService {
 		Set<Price> prices = new HashSet<Price>();
 		for (Currency currency : currencies) {
 			Price price = new PriceImpl();
+			if (currency.getIsDefault()) {
+				price.setIsDefault(true);
+			} else {
+				price.setIsDefault(false);
+			}
 			price.setCurrency(currency);
 			prices.add(price);
 		}

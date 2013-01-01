@@ -35,8 +35,16 @@
 	            <tiles:insertDefinition name="product-edit-details" />
 	        </div>
 	
-	        <div title='<spring:message code="Prices"/>'>  
-	            Prices
+	    	<c:set var="productPricesTabIconCls" value='iconCls="icon-pencil"' />
+	    	<c:forEach items="${product.prices}" var="price" varStatus="i">
+				<spring:bind path="price[${i.index}].*">
+					<c:if test="${status.error}">
+						<c:set var="productPricesTabIconCls" value='iconCls="icon-no"' /> 
+					</c:if>
+				</spring:bind>
+	    	</c:forEach>
+	        <div title='<spring:message code="Prices"/>' ${productPricesTabIconCls}>  
+	            <tiles:insertDefinition name="product-edit-prices" />
 	        </div>  
 	    </div> 
 	    <div id="ecommerce-admin-product-tab-tools">

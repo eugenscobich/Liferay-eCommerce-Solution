@@ -10,6 +10,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
+
 @Entity
 @Table(name = "price")
 public class PriceImpl extends BaseModelImpl implements Price {
@@ -21,13 +24,15 @@ public class PriceImpl extends BaseModelImpl implements Price {
 	private Currency currency;
 
 	@Column(name = "price")
+	@NumberFormat(style = Style.CURRENCY)
 	private Double price;
 
 	@Column(name = "special_price")
+	@NumberFormat(style = Style.CURRENCY)
 	private Double specialPrice;
 
-	@Column(name = "enable_special")
-	private boolean enableSpecial;
+	@Column(name = "is_enabled_special_price")
+	private Boolean isEnabledSpecialPrice;
 
 	@Column(name = "start_date")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -37,7 +42,9 @@ public class PriceImpl extends BaseModelImpl implements Price {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
 
-	
+	@Column(name = "is_default")
+	private Boolean isDefault;
+
 	@Override
 	public Currency getCurrency() {
 		return currency;
@@ -69,13 +76,13 @@ public class PriceImpl extends BaseModelImpl implements Price {
 	}
 
 	@Override
-	public boolean isEnableSpecial() {
-		return enableSpecial;
+	public Boolean getIsEnabledSpecialPrice() {
+		return isEnabledSpecialPrice;
 	}
 
 	@Override
-	public void setEnableSpecial(boolean enableSpecial) {
-		this.enableSpecial = enableSpecial;
+	public void setIsEnabledSpecialPrice(Boolean isEnabledSpecialPrice) {
+		this.isEnabledSpecialPrice = isEnabledSpecialPrice;
 	}
 
 	@Override
@@ -96,6 +103,16 @@ public class PriceImpl extends BaseModelImpl implements Price {
 	@Override
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	@Override
+	public Boolean getIsDefault() {
+		return isDefault;
+	}
+
+	@Override
+	public void setIsDefault(Boolean isDefault) {
+		this.isDefault = isDefault;
 	}
 
 	@Override
@@ -128,5 +145,5 @@ public class PriceImpl extends BaseModelImpl implements Price {
 			return false;
 		return true;
 	}
-	
+
 }

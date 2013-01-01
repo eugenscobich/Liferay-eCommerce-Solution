@@ -24,9 +24,9 @@
 			<div title='<spring:message code="Descriptions"/>' ${catalogDescriptionsTabIconCls}>  
 	            <tiles:insertDefinition name="catalog-edit-description" />
 	        </div>
-			
+
 			<c:set var="catalogDetailsTabIconCls" value='iconCls="icon-pencil"' />
-	    	<spring:bind path="catalogDetails.*">
+	    	<spring:bind path="*">
 				<c:if test="${status.error}">
 					<c:set var="catalogDetailsTabIconCls" value='iconCls="icon-no"' /> 
 				</c:if>
@@ -34,10 +34,6 @@
    			<div title='<spring:message code="Details"/>' ${catalogDetailsTabIconCls}>  
 	            <tiles:insertDefinition name="catalog-edit-details" />
 	        </div>
-	
-	        <div title='<spring:message code="Prices"/>'>  
-	            Prices
-	        </div>  
 	    </div> 
 	    <div id="ecommerce-admin-catalog-tab-tools">
 			<a href="#" id="catalog-save"><spring:message code="Save"/></a>

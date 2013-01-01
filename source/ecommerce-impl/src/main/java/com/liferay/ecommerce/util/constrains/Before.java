@@ -51,7 +51,7 @@ public @interface Before {
 	/**
 	 * Defines several <code>@FieldMatch</code> annotations on the same element
 	 * 
-	 * @see FieldMatch
+	 * @see ItselfParent
 	 */
 	@Target({ TYPE, ANNOTATION_TYPE })
 	@Retention(RUNTIME)

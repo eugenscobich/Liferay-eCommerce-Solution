@@ -32,7 +32,6 @@ import org.springframework.web.portlet.bind.annotation.ResourceMapping;
 
 import com.liferay.ecommerce.model.Catalog;
 import com.liferay.ecommerce.model.Language;
-import com.liferay.ecommerce.model.Manufacturer;
 import com.liferay.ecommerce.model.Store;
 import com.liferay.ecommerce.service.catalog.CatalogService;
 import com.liferay.ecommerce.service.language.LanguageService;
@@ -40,7 +39,7 @@ import com.liferay.ecommerce.service.manufacturer.ManufacturerService;
 import com.liferay.ecommerce.service.store.StoreService;
 import com.liferay.ecommerce.util.JsonUtil;
 import com.liferay.ecommerce.util.WebUtil;
-import com.liferay.ecommerce.util.bind.CustomManufacturerPropertyEditor;
+import com.liferay.ecommerce.util.bind.CustomCatalogPropertyEditor;
 import com.liferay.ecommerce.util.formater.DateFormaterUtil;
 
 @Controller
@@ -62,32 +61,29 @@ public class CatalogsController extends BaseAdminController {
 	private LanguageService languageService;
 
 	@Autowired
-	private CustomManufacturerPropertyEditor customManufacturerPropertyEditor;
+	private CustomCatalogPropertyEditor customCatalogPropertyEditor;
 
 	@Autowired
 	private ManufacturerService manufacturerService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		CustomDateEditor customDateEditor = new CustomDateEditor(DateFormaterUtil.getDateFormatForWeb(), true,
-				DateFormaterUtil.WEB_FORMAT.length());
+		CustomDateEditor customDateEditor = new CustomDateEditor(DateFormaterUtil.getDateFormatForWeb(), true, DateFormaterUtil.WEB_FORMAT.length());
 		binder.registerCustomEditor(Date.class, customDateEditor);
-		binder.registerCustomEditor(Manufacturer.class, customManufacturerPropertyEditor);
+		binder.registerCustomEditor(Catalog.class, customCatalogPropertyEditor);
 
 	}
 
 	@ModelAttribute("catalog")
 	public Catalog getNewCatalog(PortletRequest request, @RequestParam(required = false) Long catalogId) {
-		if (("save-catalog".equals(request.getParameter("javax.portlet.action")) || "edit-catalog".equals(request
-				.getParameter("javax.portlet.action"))) && catalogId != null) {
+		if (("save-catalog".equals(request.getParameter("javax.portlet.action")) || "edit-catalog".equals(request.getParameter("javax.portlet.action"))) && catalogId != null) {
 			Catalog catalog = catalogService.getForEdit(catalogId);
 			return catalog;
-		} else if (("add-catalog".equals(request.getParameter("javax.portlet.action")) || "save-catalog".equals(request
-				.getParameter("javax.portlet.action"))) && catalogId == null) {
+		} else if (("add-catalog".equals(request.getParameter("javax.portlet.action")) || "save-catalog".equals(request.getParameter("javax.portlet.action"))) && catalogId == null) {
 			Store store = WebUtil.getAdminCurrentStore(request);
 			Catalog catalog = catalogService.getNewCatalog(store);
 			return catalog;
-		} 
+		}
 		return null;
 	}
 
@@ -98,13 +94,21 @@ public class CatalogsController extends BaseAdminController {
 
 	@ResourceMapping("getCatalogsForPage")
 	@ResponseBody
-	public Map<String, Object> getCatalogsForPage(ResourceRequest request, ResourceResponse resourceResponse, @RequestParam Integer page,
-			@RequestParam Integer rows) {
+	public Map<String, Object> getCatalogsForPage(ResourceRequest request, ResourceResponse resourceResponse, @RequestParam Integer page, @RequestParam Integer rows) {
 		Store store = WebUtil.getAdminCurrentStore(request);
 		Language language = languageService.getLanguageByCode(store, request.getLocale().getLanguage());
 		List<Catalog> catalogs = catalogService.getCatalogsForPage(store, page, rows, language);
 		Long total = catalogService.getNumberOfCatalogs(store);
 		return JsonUtil.getPaginationData(catalogs, total);
+	}
+
+	@ResourceMapping("getAllCatalogs")
+	@ResponseBody
+	public List<Catalog> getAllCatalogs(ResourceRequest request, ResourceResponse resourceResponse) {
+		Store store = WebUtil.getAdminCurrentStore(request);
+		Language language = languageService.getLanguageByCode(store, request.getLocale().getLanguage());
+		List<Catalog> catalogs = catalogService.getAllCatalogs(store, language);
+		return catalogs;
 	}
 
 	@RenderMapping(params = "view=edit-catalog-view")
@@ -131,8 +135,7 @@ public class CatalogsController extends BaseAdminController {
 	}
 
 	@ActionMapping("save-catalog")
-	public void addCatalog(ActionRequest request, @ModelAttribute("catalog") @Valid Catalog catalog, BindingResult bindingResult,
-			ActionResponse response, Model model) {
+	public void addCatalog(ActionRequest request, @ModelAttribute("catalog") @Valid Catalog catalog, BindingResult bindingResult, ActionResponse response, Model model) {
 		if (!bindingResult.hasErrors()) {
 			catalogService.save(catalog);
 		}

@@ -1,5 +1,8 @@
 package com.liferay.ecommerce.service.catalog;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.liferay.ecommerce.dao.catalog.CatalogDataAccess;
 import com.liferay.ecommerce.model.Catalog;
+import com.liferay.ecommerce.model.CatalogDescription;
+import com.liferay.ecommerce.model.CatalogDescriptionImpl;
 import com.liferay.ecommerce.model.CatalogImpl;
 import com.liferay.ecommerce.model.Language;
 import com.liferay.ecommerce.model.Store;
@@ -31,6 +36,19 @@ public class CatalogServiceImpl implements CatalogService {
 	public List<Catalog> getCatalogsForPage(Store store, Integer page, Integer rows, Language language) {
 		ServiceUtil.validateStore(store);
 		List<Catalog> catalogs = catalogDataAccess.getCatalogsForPage(store.getId(), page, rows, language.getId());
+		for (Catalog catalog : catalogs) {
+			catalog.setChildren(getCatalogChildren(catalog, language));
+		}
+		return catalogs;
+	}
+
+	private List<Catalog> getCatalogChildren(Catalog catalog, Language language) {
+		List<Catalog> catalogs = catalogDataAccess.getCatalogChildren(catalog.getId(), language.getId());
+		if (catalogs != null && !catalogs.isEmpty()) {
+			for (Catalog catalog2 : catalogs) {
+				catalog2.setChildren(getCatalogChildren(catalog2, language));
+			}
+		}
 		return catalogs;
 	}
 
@@ -45,6 +63,23 @@ public class CatalogServiceImpl implements CatalogService {
 	@Transactional
 	public Catalog getNewCatalog(Store store) {
 		Catalog catalog = new CatalogImpl();
+		// Prepare catalog description
+		List<Language> languages = languageService.getAvailableLanguages(store);
+		List<CatalogDescription> catalogDescriptions = new ArrayList<CatalogDescription>();
+		for (Language language : languages) {
+			CatalogDescription catalogDescription = new CatalogDescriptionImpl();
+			catalogDescription.setLanguage(language);
+			if (language.getIsDefault()) {
+				catalogDescription.setIsDefault(true);
+			} else {
+				catalogDescription.setIsDefault(false);
+			}
+			catalogDescriptions.add(catalogDescription);
+		}
+		catalog.setCatalogDescriptions(catalogDescriptions);
+
+		// prepare store
+		catalog.setStores(new HashSet<Store>(Arrays.asList(store)));
 		return catalog;
 	}
 
@@ -82,5 +117,16 @@ public class CatalogServiceImpl implements CatalogService {
 			}
 		}
 
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Catalog> getAllCatalogs(Store store, Language language) {
+		ServiceUtil.validateStore(store);
+		List<Catalog> catalogs = catalogDataAccess.getAllCatalogs(store.getId(), language.getId());
+		for (Catalog catalog : catalogs) {
+			catalog.setChildren(getCatalogChildren(catalog, language));
+		}
+		return catalogs;
 	}
 }

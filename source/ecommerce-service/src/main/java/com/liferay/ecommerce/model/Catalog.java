@@ -1,19 +1,24 @@
 package com.liferay.ecommerce.model;
 
+import java.util.List;
 import java.util.Set;
 
 public interface Catalog extends BaseModel {
 
-	Set<CatalogDescription> getCatalogDescriptions();
+	List<CatalogDescription> getCatalogDescriptions();
 
-	void setCatalogDescriptions(Set<CatalogDescription> catalogDescriptions);
+	void setCatalogDescriptions(List<CatalogDescription> catalogDescriptions);
 
 	Set<Store> getStores();
 
 	void setStores(Set<Store> stores);
 
-	Set<Catalog> getSubcatalogs();
+	List<Catalog> getChildren();
 
-	void setSubcatalogs(Set<Catalog> subcatalogs);
+	void setChildren(List<Catalog> children);
+
+	Catalog getParent();
+
+	void setParent(Catalog parent);
 
 }

@@ -52,27 +52,7 @@
 
 <script>
 $(function(){
-	$('#ecommerce-admin-catalog-description-tab').tabs({
-		//tools: '#ecommerce-admin-catalog-description-tab-tools'
-	});
-	
-	var $languageAddBtn = $('#language-add').linkbutton({
-		iconCls: 'icon-add',
-	    plain: true
-	});
-	
-	$languageAddBtn.click(function(){
-		if (!($languageAddBtn.linkbutton('options').disabled)) {
-		
-			$('#ecommerce-admin-catalog-description-dialog #select-language-cc').combobox({  
-			    url:'combobox_data.json',  
-			    valueField:'id',  
-			    textField:'text'  
-			}); 
-			
-		}
-	});
-	
+	$('#ecommerce-admin-catalog-description-tab').tabs({});
 	var $catalogDescriptionIsDefaultCheckBoxes = $('.catalog-description-is-default-selector');
 	$catalogDescriptionIsDefaultCheckBoxes.change(function(){
 		var $catalogDescriptionIsDefaultCheckBox = $(this);

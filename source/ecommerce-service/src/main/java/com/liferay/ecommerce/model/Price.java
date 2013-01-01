@@ -16,9 +16,9 @@ public interface Price {
 
 	void setSpecialPrice(Double specialPrice);
 
-	boolean isEnableSpecial();
+	Boolean getIsEnabledSpecialPrice();
 
-	void setEnableSpecial(boolean enableSpecial);
+	void setIsEnabledSpecialPrice(Boolean isEnabledSpecialPrice);
 
 	Date getStartDate();
 
@@ -27,5 +27,9 @@ public interface Price {
 	Date getEndDate();
 
 	void setEndDate(Date endDate);
+
+	Boolean getIsDefault();
+
+	void setIsDefault(Boolean isDefault);
 
 }

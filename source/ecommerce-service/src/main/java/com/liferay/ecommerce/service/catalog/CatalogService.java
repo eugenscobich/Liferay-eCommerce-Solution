@@ -20,4 +20,6 @@ public interface CatalogService {
 	void save(Catalog catalog);
 
 	void remove(List<Long> catalogIds);
+
+	List<Catalog> getAllCatalogs(Store store, Language language);
 }
