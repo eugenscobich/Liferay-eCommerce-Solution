@@ -21,9 +21,9 @@ public interface Product extends BaseModel {
 
 	void setMedias(Set<Media> medias);
 
-	Set<Catalog> getCatalogs();
+	List<Catalog> getCatalogs();
 
-	void setCatalogs(Set<Catalog> catalogs);
+	void setCatalogs(List<Catalog> catalogs);
 
 	List<Product> getProducts();
 

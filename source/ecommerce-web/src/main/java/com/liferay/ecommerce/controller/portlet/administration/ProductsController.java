@@ -40,6 +40,7 @@ import com.liferay.ecommerce.service.product.ProductService;
 import com.liferay.ecommerce.service.store.StoreService;
 import com.liferay.ecommerce.util.JsonUtil;
 import com.liferay.ecommerce.util.WebUtil;
+import com.liferay.ecommerce.util.bind.CustomCatalogsPropertyEditor;
 import com.liferay.ecommerce.util.bind.CustomManufacturerPropertyEditor;
 import com.liferay.ecommerce.util.formater.DateFormaterUtil;
 
@@ -65,6 +66,9 @@ public class ProductsController extends BaseAdminController {
 	private CustomManufacturerPropertyEditor customManufacturerPropertyEditor;
 
 	@Autowired
+	private CustomCatalogsPropertyEditor customCatalogsPropertyEditor;
+	
+	@Autowired
 	private ManufacturerService manufacturerService;
 
 	@InitBinder
@@ -73,6 +77,7 @@ public class ProductsController extends BaseAdminController {
 				DateFormaterUtil.WEB_FORMAT.length());
 		binder.registerCustomEditor(Date.class, customDateEditor);
 		binder.registerCustomEditor(Manufacturer.class, customManufacturerPropertyEditor);
+		binder.registerCustomEditor(List.class, "catalogs", customCatalogsPropertyEditor);
 
 	}
 

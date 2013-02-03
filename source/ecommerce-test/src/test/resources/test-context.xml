@@ -24,6 +24,10 @@
 	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
+	<jdbc:initialize-database data-source="dataSource"> 
+		<jdbc:script location="import-test.sql"/>
+	</jdbc:initialize-database>
+
 	<bean class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
 		<property name="scripts">
 			<list>

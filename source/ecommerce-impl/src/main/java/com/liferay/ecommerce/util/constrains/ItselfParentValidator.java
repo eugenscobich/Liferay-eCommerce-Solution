@@ -20,14 +20,10 @@ public class ItselfParentValidator implements ConstraintValidator<ItselfParent, 
 		try {
 
 			final Object checkField = PropertyUtils.getProperty(value, checkFieldName);
-			boolean neitherSet = (value == null) && (checkField == null);
-
-			if (neitherSet) {
+			if (checkField == null) {
 				return true;
 			}
-
 			boolean matches = (checkField != null) && !checkField.equals(value);
-
 			if (!matches) {
 				context.disableDefaultConstraintViolation();
 				context.buildConstraintViolationWithTemplate(message).addNode(checkFieldName).addConstraintViolation();

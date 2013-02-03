@@ -44,7 +44,7 @@ public class ProductImpl extends BaseModelImpl implements Product {
 
 	@ManyToMany(targetEntity = CatalogImpl.class)
 	@JoinTable(name = "product_to_catalog", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = { @JoinColumn(name = "catalog_id") })
-	private Set<Catalog> catalogs;
+	private List<Catalog> catalogs;
 
 	@ManyToMany(targetEntity = ProductImpl.class)
 	@JoinTable(name = "product_to_product", joinColumns = { @JoinColumn(name = "parent_product_id") }, inverseJoinColumns = { @JoinColumn(name = "product_id") })
@@ -99,12 +99,12 @@ public class ProductImpl extends BaseModelImpl implements Product {
 	}
 
 	@Override
-	public Set<Catalog> getCatalogs() {
+	public List<Catalog> getCatalogs() {
 		return catalogs;
 	}
 
 	@Override
-	public void setCatalogs(Set<Catalog> catalogs) {
+	public void setCatalogs(List<Catalog> catalogs) {
 		this.catalogs = catalogs;
 	}
 

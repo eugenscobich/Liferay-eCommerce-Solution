@@ -1,20 +1,3 @@
-SET DATABASE REFERENTIAL INTEGRITY FALSE; 
-DELETE FROM ecommerce_store;
-DELETE FROM ecommerce_language;
-DELETE FROM ecommerce_store_to_language;
-DELETE FROM ecommerce_product_details;
-DELETE FROM ecommerce_product;
-DELETE FROM ecommerce_product_description;
-DELETE FROM ecommerce_currency;
-DELETE FROM ecommerce_price;
-DELETE FROM ecommerce_store_to_product;
-DELETE FROM ecommerce_store_to_currency;
-DELETE FROM ecommerce_catalog;
-DELETE FROM ecommerce_catalog_description;
-DELETE FROM ecommerce_store_to_catalog;
-SET DATABASE REFERENTIAL INTEGRITY TRUE; 
-
-
 INSERT INTO ecommerce_store (id, name) VALUES (1, 'eugen');
 
 INSERT INTO ecommerce_language (id, code, is_default) VALUES (1, 'en', true);

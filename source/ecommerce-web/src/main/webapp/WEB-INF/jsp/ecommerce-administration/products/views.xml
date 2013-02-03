@@ -17,5 +17,6 @@
 	<definition name="product-edit-description" template="/WEB-INF/jsp/ecommerce-administration/products/product-edit-description.jsp" />
 	<definition name="product-edit-details" template="/WEB-INF/jsp/ecommerce-administration/products/product-edit-details.jsp" />
 	<definition name="product-edit-prices" template="/WEB-INF/jsp/ecommerce-administration/products/product-edit-prices.jsp" />
+	<definition name="product-edit-catalogs" template="/WEB-INF/jsp/ecommerce-administration/products/product-edit-catalogs.jsp" />
 	
 </tiles-definitions>
