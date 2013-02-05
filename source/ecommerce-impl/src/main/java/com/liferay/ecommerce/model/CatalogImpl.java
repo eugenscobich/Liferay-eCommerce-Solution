@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -23,12 +24,17 @@ import com.liferay.ecommerce.util.constrains.ItselfParent;
 @NamedQueries({
 		@NamedQuery(name = "Catalog.findAll", query = "SELECT c FROM Catalog c INNER JOIN c.stores s LEFT JOIN FETCH c.catalogDescriptions cdcpr WHERE s.id = :storeId AND cdcpr.language.id = :languageId AND c.parent IS NULL"),
 		@NamedQuery(name = "Catalog.totalNumber", query = "SELECT COUNT(c.id) FROM Catalog c INNER JOIN c.stores s WHERE s.id = :storeId AND c.parent IS NULL"),
-		@NamedQuery(name = "Catalog.getCatalogChildren", query = "SELECT c FROM Catalog c LEFT JOIN FETCH c.catalogDescriptions cdcpr WHERE cdcpr.language.id = :languageId AND c.parent.id = :parentId") })
+		@NamedQuery(name = "Catalog.getCatalogChildren", query = "SELECT c FROM Catalog c LEFT JOIN FETCH c.catalogDescriptions cdcpr WHERE cdcpr.language.id = :languageId AND c.parent.id = :parentId"),
+		@NamedQuery(name = "Catalog.getActiveCatalogChildren", query = "SELECT c FROM Catalog c LEFT JOIN FETCH c.catalogDescriptions cdcpr WHERE cdcpr.language.id = :languageId AND c.parent.id = :parentId AND c.isActive = 1"),
+		@NamedQuery(name = "Catalog.findAllActive", query = "SELECT c FROM Catalog c INNER JOIN c.stores s LEFT JOIN FETCH c.catalogDescriptions cdcpr WHERE s.id = :storeId AND cdcpr.language.id = :languageId AND c.parent IS NULL AND c.isActive = 1")})
 @ItselfParent(checkField = "parent")
 public class CatalogImpl extends BaseModelImpl implements Catalog {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name="is_active")
+	private Boolean isActive;
+	
 	@OneToMany(cascade = CascadeType.ALL, targetEntity = CatalogDescriptionImpl.class, orphanRemoval = true)
 	@JoinColumn(name = "catalog_id")
 	private List<CatalogDescription> catalogDescriptions;
@@ -92,30 +98,14 @@ public class CatalogImpl extends BaseModelImpl implements Catalog {
 	public String getText() {
 		return getCatalogDescriptions().get(0).getName();
 	}
-
+	
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-		return result;
+	public Boolean getIsActive() {
+		return isActive;
 	}
-
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CatalogImpl other = (CatalogImpl) obj;
-		if (getId() == null) {
-			if (other.getId() != null)
-				return false;
-		} else if (!getId().equals(other.getId()))
-			return false;
-		return true;
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 }

@@ -13,6 +13,10 @@ public interface CatalogDataAccess extends BaseDataAccess<Catalog> {
 
 	List<Catalog> getCatalogChildren(Long parentId, Long languageId);
 
-	List<Catalog> getAllCatalogs(Long id, Long id2);
+	List<Catalog> getAllCatalogs(Long storeId, Long languageId);
+
+	List<Catalog> getAllActiveCatalogs(Long storeId, Long languageId);
+
+	List<Catalog> getActiveCatalogChildren(Long parentId, Long languageId);
 
 }

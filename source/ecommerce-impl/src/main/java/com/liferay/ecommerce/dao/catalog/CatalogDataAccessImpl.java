@@ -46,4 +46,20 @@ public class CatalogDataAccessImpl extends BaseDataAccessImpl<CatalogImpl, Catal
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Catalog> getAllActiveCatalogs(Long storeId, Long languageId) {
+		TypedQuery<Catalog> query = entityManager.createNamedQuery("Catalog.findAllActive", Catalog.class);
+		query.setParameter("storeId", storeId);
+		query.setParameter("languageId", languageId);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Catalog> getActiveCatalogChildren(Long parentId, Long languageId) {
+		TypedQuery<Catalog> query = entityManager.createNamedQuery("Catalog.getActiveCatalogChildren", Catalog.class);
+		query.setParameter("languageId", languageId);
+		query.setParameter("parentId", parentId);
+		return query.getResultList();
+	}
+
 }

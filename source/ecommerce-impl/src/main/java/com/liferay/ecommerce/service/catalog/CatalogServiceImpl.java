@@ -63,6 +63,7 @@ public class CatalogServiceImpl implements CatalogService {
 	@Transactional
 	public Catalog getNewCatalog(Store store) {
 		Catalog catalog = new CatalogImpl();
+		catalog.setIsActive(true);
 		// Prepare catalog description
 		List<Language> languages = languageService.getAvailableLanguages(store);
 		List<CatalogDescription> catalogDescriptions = new ArrayList<CatalogDescription>();
@@ -126,6 +127,27 @@ public class CatalogServiceImpl implements CatalogService {
 		List<Catalog> catalogs = catalogDataAccess.getAllCatalogs(store.getId(), language.getId());
 		for (Catalog catalog : catalogs) {
 			catalog.setChildren(getCatalogChildren(catalog, language));
+		}
+		return catalogs;
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Catalog> getAllActiveCatalogs(Store store, Language language) {
+		ServiceUtil.validateStore(store);
+		List<Catalog> catalogs = catalogDataAccess.getAllActiveCatalogs(store.getId(), language.getId());
+		for (Catalog catalog : catalogs) {
+			catalog.setChildren(getActiveCatalogChildren(catalog, language));
+		}
+		return catalogs;
+	}
+	
+	private List<Catalog> getActiveCatalogChildren(Catalog parentCatalog, Language language) {
+		List<Catalog> catalogs = catalogDataAccess.getActiveCatalogChildren(parentCatalog.getId(), language.getId());
+		if (catalogs != null && !catalogs.isEmpty()) {
+			for (Catalog catalog : catalogs) {
+				catalog.setChildren(getActiveCatalogChildren(catalog, language));
+			}
 		}
 		return catalogs;
 	}

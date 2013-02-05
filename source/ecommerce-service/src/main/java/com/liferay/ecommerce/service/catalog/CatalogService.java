@@ -22,4 +22,6 @@ public interface CatalogService {
 	void remove(List<Long> catalogIds);
 
 	List<Catalog> getAllCatalogs(Store store, Language language);
+
+	List<Catalog> getAllActiveCatalogs(Store store, Language language);
 }

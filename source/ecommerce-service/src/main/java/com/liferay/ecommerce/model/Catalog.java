@@ -21,4 +21,8 @@ public interface Catalog extends BaseModel {
 
 	void setParent(Catalog parent);
 
+	Boolean getIsActive();
+
+	void setIsActive(Boolean isActive);
+
 }

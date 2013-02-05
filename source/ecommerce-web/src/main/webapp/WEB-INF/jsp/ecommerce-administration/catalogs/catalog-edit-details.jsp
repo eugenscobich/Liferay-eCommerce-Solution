@@ -17,6 +17,15 @@
 				<form:errors path="parent" cssClass="field-error"/>
 			</li>
 		</ul>
+		<ul class="title-value-pair">
+			<li class="w100px">
+				<form:label path="isActive"><spring:message code="Is-Active" />:</form:label>
+			</li>
+			<li>
+				<form:checkbox path="isActive" value="true"/>
+				<form:errors path="isActive" cssClass="field-error"/>
+			</li>
+		</ul>
 	</div>
 </div>
 

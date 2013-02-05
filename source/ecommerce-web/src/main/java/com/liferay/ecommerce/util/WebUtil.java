@@ -32,4 +32,13 @@ public class WebUtil {
 		List<Long> longs = Arrays.asList(ArrayUtils.toObject(ids));
 		return longs;
 	}
+	
+	public static Store getCurrentStore(PortletRequest request) {
+		return (Store) request.getPortletSession().getAttribute(Constant.CURRENT_STORE_SESSION_ATTR);
+	}
+
+	public static void setCurrentStore(PortletRequest request, Store store) {
+		request.getPortletSession().setAttribute(Constant.CURRENT_STORE_SESSION_ATTR, store);
+	}
+	
 }

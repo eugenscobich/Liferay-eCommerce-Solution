@@ -18,6 +18,21 @@
 		</supports>
 		<resource-bundle>/messages/ecommerce-main</resource-bundle>
 	</portlet>
+
+	<portlet>
+		<portlet-name>eCommerceCatalogs</portlet-name>
+		<display-name>eCommerce Catalogs</display-name>
+		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+		<init-param>
+			<name>contextConfigLocation</name>
+			<value>/WEB-INF/context/ecommerce-catalogs-context.xml</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>/messages/ecommerce-catalogs</resource-bundle>
+	</portlet>
 	
 	<!-- ======================================================= Administration ======================================================= -->
 	<portlet>
