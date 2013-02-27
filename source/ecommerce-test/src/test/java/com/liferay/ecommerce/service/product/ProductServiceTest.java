@@ -10,11 +10,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.liferay.ecommerce.admin.service.language.LanguageService;
+import com.liferay.ecommerce.admin.service.product.ProductService;
+import com.liferay.ecommerce.admin.service.store.StoreService;
 import com.liferay.ecommerce.model.Language;
 import com.liferay.ecommerce.model.Product;
 import com.liferay.ecommerce.model.Store;
-import com.liferay.ecommerce.service.language.LanguageService;
-import com.liferay.ecommerce.service.store.StoreService;
 import com.liferay.ecommerce.util.ECommerceJUnit4ClassRunner;
 
 

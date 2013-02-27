@@ -7,4 +7,8 @@ public interface Store extends BaseModel {
 
 	void setName(String name);
 
+	Boolean getIsActive();
+
+	void setIsActive(Boolean isActive);
+
 }

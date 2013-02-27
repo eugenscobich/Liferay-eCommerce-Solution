@@ -7,8 +7,8 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.liferay.ecommerce.admin.service.manufacturer.ManufacturerService;
 import com.liferay.ecommerce.model.Manufacturer;
-import com.liferay.ecommerce.service.manufacturer.ManufacturerService;
 
 @Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)

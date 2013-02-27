@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.liferay.ecommerce.admin.service.store.StoreService;
 import com.liferay.ecommerce.model.Store;
 import com.liferay.ecommerce.util.ECommerceJUnit4ClassRunner;
 

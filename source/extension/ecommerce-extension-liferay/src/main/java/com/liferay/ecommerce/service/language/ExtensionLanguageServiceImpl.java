@@ -14,9 +14,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import com.liferay.ecommerce.admin.service.language.LanguageService;
+import com.liferay.ecommerce.admin.service.plugin.PluginService;
 import com.liferay.ecommerce.model.Language;
 import com.liferay.ecommerce.model.Store;
-import com.liferay.ecommerce.service.plugin.PluginService;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.LocaleUtil;
